@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIP Simulator - FinLearnX</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        .box {
+            max-width: 400px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>SIP Investment Simulator</h2>
+
+    <input type="number" id="sip" placeholder="Monthly Investment (₹)">
+    <input type="number" id="rate" placeholder="Annual Return (%)">
+    <input type="number" id="years" placeholder="Time Period (Years)">
+
+    <button onclick="calculateSIP()">Simulate</button>
+
+    <div class="result">
+        <p>Total Invested: ₹<span id="invested">0</span></p>
+        <p>Final Value: ₹<span id="final">0</span></p>
+        <p>Wealth Gained: ₹<span id="gain">0</span></p>
+    </div>
+</div>
+
+<script src="sip.js"></script>
+</body>
+</html>
