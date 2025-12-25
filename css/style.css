@@ -139,3 +139,110 @@ body {
     font-size: 2rem;
   }
 }
+/* =====================
+   HERO
+====================== */
+.hero {
+  text-align: center;
+  padding: 70px 20px 50px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: #1f6b3b;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* =====================
+   SECTIONS
+====================== */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 60px 0 15px;
+  color: #1f6b3b;
+}
+
+.section-desc {
+  text-align: center;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+/* =====================
+   SIMULATIONS
+====================== */
+.simulations-section {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.simulation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.simulation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 22px 26px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.simulation-info h4 {
+  margin: 0 0 6px;
+  color: #1f6b3b;
+}
+
+.simulation-info p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.simulation-row button {
+  padding: 10px 22px;
+  border-radius: 22px;
+  border: none;
+  background: #1f6b3b;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.simulation-row button:hover {
+  background: #155c32;
+}
+
+.simulation-row.disabled {
+  opacity: 0.6;
+}
+
+.simulation-row.disabled button {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* =====================
+   FOOTER
+====================== */
+.footer {
+  margin-top: 80px;
+  padding: 25px;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+}
