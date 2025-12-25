@@ -246,42 +246,67 @@ body {
   color: #777;
   font-size: 0.9rem;
 }
-.simulation-row {
-  position: relative;
-  overflow: hidden;
-}
-.simulation-row.blue {
-  background: linear-gradient(135deg, #f0f7ff, #ffffff);
-  border-left: 6px solid #2563eb;
+/* =========================
+   Clean Simulation Design
+========================= */
+
+.simulation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
+.simulation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #ffffff;
+  padding: 32px 40px;
+  border-radius: 20px;
+
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.simulation-row:hover {
+  transform: translateY(-4px);
+}
+
+/* Text */
+.simulation-info h4 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+  color: #1f2933;
+}
+
+.simulation-info p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #555;
+  max-width: 520px;
+}
+
+/* Buttons */
+.simulation-row button {
+  padding: 14px 36px;
+  border-radius: 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Subtle color identity */
 .simulation-row.blue button {
   background: linear-gradient(135deg, #2563eb, #1e40af);
-}
-.simulation-row.green {
-  background: linear-gradient(135deg, #ecfdf5, #ffffff);
-  border-left: 6px solid #16a34a;
 }
 
 .simulation-row.green button {
   background: linear-gradient(135deg, #16a34a, #14532d);
 }
-.simulation-row.purple {
-  background: linear-gradient(135deg, #f5f3ff, #ffffff);
-  border-left: 6px solid #7c3aed;
-}
 
 .simulation-row.purple button {
   background: linear-gradient(135deg, #7c3aed, #5b21b6);
-}
-.simulation-row.blue:hover {
-  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.25);
-}
-
-.simulation-row.green:hover {
-  box-shadow: 0 18px 40px rgba(22, 163, 74, 0.25);
-}
-
-.simulation-row.purple:hover {
-  box-shadow: 0 18px 40px rgba(124, 58, 237, 0.25);
 }
