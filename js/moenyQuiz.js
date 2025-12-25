@@ -1,33 +1,40 @@
 window.calculateScore = function () {
-  const form = document.getElementById("quizForm");
   const resultDiv = document.getElementById("result");
 
+  const questions = ["q1", "q2", "q3", "q4", "q5"];
   let totalScore = 0;
-  let questions = ["q1", "q2", "q3", "q4", "q5"];
 
   for (let q of questions) {
-    if (!form[q].value) {
+    const selected = document.querySelector(`input[name="${q}"]:checked`);
+    if (!selected) {
       alert("Please answer all questions");
       return;
     }
-    totalScore += parseInt(form[q].value);
+    totalScore += parseInt(selected.value);
   }
 
-  let resultHTML = "";
+  let personality = "";
+  let colorClass = "";
 
   if (totalScore <= 9) {
-    resultHTML = `<h3 class="spender">Spender</h3>`;
+    personality = "Spender";
+    colorClass = "spender";
   } else if (totalScore <= 14) {
-    resultHTML = `<h3 class="balancer">Balancer</h3>`;
+    personality = "Balancer";
+    colorClass = "balancer";
   } else if (totalScore <= 19) {
-    resultHTML = `<h3 class="saver">Saver</h3>`;
+    personality = "Saver";
+    colorClass = "saver";
   } else {
-    resultHTML = `<h3 class="investor">Investor</h3>`;
+    personality = "Investor";
+    colorClass = "investor";
   }
 
   resultDiv.style.display = "block";
   resultDiv.innerHTML = `
+    <h3 class="${colorClass}">You are a ${personality}</h3>
     <p class="score">Your Score: ${totalScore}</p>
-    ${resultHTML}
   `;
+
+  resultDiv.scrollIntoView({ behavior: "smooth" });
 };
