@@ -1,6 +1,5 @@
 let chart;
-
-function calculateBudget() {
+window.calculateBudget = function () {
   const income = Number(document.getElementById("income").value);
 
   const rent = Number(document.getElementById("rent").value);
