@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Money Personality Quiz</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/moneyQuiz.css">
+</head>
+
+<body>
+
+<a href="../index.html" class="back-link">← Back to Home</a>
+
+<div class="quiz-container">
+  <h1>Money Personality Quiz</h1>
+
+  <form id="quizForm">
+
+    <!-- QUESTIONS (same as yours, unchanged) -->
+    <!-- Question 1 -->
+    <div class="question">
+      <p>1. When you receive money as a gift, you are most likely to…</p>
+      <label><input type="radio" name="q1" value="1"> Spend it right away</label>
+      <label><input type="radio" name="q1" value="4"> Save it</label>
+      <label><input type="radio" name="q1" value="5"> Invest or donate</label>
+      <label><input type="radio" name="q1" value="2"> Split it wisely</label>
+    </div>
+
+    <!-- (Keep other questions exactly the same) -->
+
+    <button type="button" onclick="calculateScore()">Submit Quiz</button>
+  </form>
+
+  <div id="result"></div>
+</div>
+
+<script src="../js/moneyQuiz.js"></script>
+</body>
+</html>
