@@ -246,3 +246,42 @@ body {
   color: #777;
   font-size: 0.9rem;
 }
+.simulation-row {
+  position: relative;
+  overflow: hidden;
+}
+.simulation-row.blue {
+  background: linear-gradient(135deg, #f0f7ff, #ffffff);
+  border-left: 6px solid #2563eb;
+}
+
+.simulation-row.blue button {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+.simulation-row.green {
+  background: linear-gradient(135deg, #ecfdf5, #ffffff);
+  border-left: 6px solid #16a34a;
+}
+
+.simulation-row.green button {
+  background: linear-gradient(135deg, #16a34a, #14532d);
+}
+.simulation-row.purple {
+  background: linear-gradient(135deg, #f5f3ff, #ffffff);
+  border-left: 6px solid #7c3aed;
+}
+
+.simulation-row.purple button {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+.simulation-row.blue:hover {
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.25);
+}
+
+.simulation-row.green:hover {
+  box-shadow: 0 18px 40px rgba(22, 163, 74, 0.25);
+}
+
+.simulation-row.purple:hover {
+  box-shadow: 0 18px 40px rgba(124, 58, 237, 0.25);
+}
