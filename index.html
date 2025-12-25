@@ -2,38 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>FinLearnX Topics</title>
+  <title>FinLearnX</title>
 
-  <!-- IMPORTANT: use ./ -->
-<link rel="stylesheet" href="./css/style.css">
-
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
-  
 <body>
 
-<h1 class="page-title">Financial Literacy Topics</h1>
+<!-- =====================
+     HERO / INTRO
+====================== -->
+<section class="hero">
+  <h1 class="hero-title">FinLearnX</h1>
+  <p class="hero-subtitle">
+    Learn financial concepts. Apply them using real-world simulations.
+  </p>
+</section>
 
-<div class="card-container">
+<!-- =====================
+     TOPICS SECTION
+====================== -->
+<section class="topics-section">
+  <h2 class="section-title">📚 Financial Literacy Topics</h2>
 
-  <div class="topic-card" onclick="goTo('pages/budget.html')">
-    <h2>💰 Budget</h2>
-    <p>Plan your income, control expenses, and save smartly.</p>
+  <div class="card-container">
+
+    <div class="topic-card" onclick="goTo('pages/budget.html')">
+      <h3>💰 Budgeting</h3>
+      <p>Plan income, manage expenses, and build saving habits.</p>
+    </div>
+
+    <div class="topic-card" onclick="goTo('pages/credit.html')">
+      <h3>💳 Credit Score</h3>
+      <p>Understand creditworthiness and its impact on loans.</p>
+    </div>
+
+    <div class="topic-card" onclick="goTo('pages/investment.html')">
+      <h3>📈 Investment</h3>
+      <p>Grow money over time with smart investment strategies.</p>
+    </div>
+
   </div>
+</section>
 
-  <div class="topic-card" onclick="goTo('pages/credit.html')">
-    <h2>💳 Credit Score</h2>
-    <p>Your financial reputation that affects loans & interest.</p>
+<!-- =====================
+     SIMULATIONS SECTION
+====================== -->
+<section class="simulations-section">
+  <h2 class="section-title">🧮 Interactive Simulations</h2>
+  <p class="section-desc">
+    Apply what you learn using practical financial tools.
+  </p>
+
+  <div class="simulation-list">
+
+    <div class="simulation-row">
+      <div class="simulation-info">
+        <h4>Loan EMI Calculator</h4>
+        <p>Calculate monthly EMI, interest, and total loan cost.</p>
+      </div>
+      <button onclick="goTo('simulations/loanSimulator.html')">
+        Open →
+      </button>
+    </div>
+
+    <div class="simulation-row">
+      <div class="simulation-info">
+        <h4>Budget Planner</h4>
+        <p>Analyze expenses, savings, and spending behavior.</p>
+      </div>
+      <button onclick="goTo('simulations/budgetSimulation.html')">
+        Open →
+      </button>
+    </div>
+
+    <div class="simulation-row disabled">
+      <div class="simulation-info">
+        <h4>SIP Calculator</h4>
+        <p>Estimate long-term wealth through monthly investments.</p>
+      </div>
+      <button disabled>Coming Soon</button>
+    </div>
+
   </div>
+</section>
 
-  <div class="topic-card" onclick="goTo('pages/investment.html')">
-    <h2>📈 Investment</h2>
-    <p>Grow your money over time by investing wisely.</p>
-  </div>
-
-</div>
+<!-- =====================
+     FOOTER
+====================== -->
+<footer class="footer">
+  <p>© 2025 FinLearnX • Built for financial awareness</p>
+</footer>
 
 <script src="./js/main.js"></script>
 </body>
-
 </html>
