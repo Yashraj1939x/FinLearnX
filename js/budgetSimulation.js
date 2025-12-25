@@ -1,52 +1,41 @@
-let chart;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Planner - FinLearnX</title>
 
-function calculateBudget() {
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/budgetsSimulation.css">
+</head>
 
-    let income = Number(document.getElementById("income").value);
+<body>
 
-    let rent = Number(document.getElementById("rent").value);
-    let food = Number(document.getElementById("food").value);
-    let transport = Number(document.getElementById("transport").value);
-    let others = Number(document.getElementById("others").value);
+<a href="../index.html" class="back-link">← Back to Home</a>
 
-    let totalExpenses = rent + food + transport + others;
-    let savings = income - totalExpenses;
+<div class="box">
+  <h2>Monthly Budget Planner</h2>
 
-    document.getElementById("expenses").innerText = totalExpenses;
-    document.getElementById("savings").innerText = savings;
+  <input type="number" id="income" placeholder="Monthly Income (₹)">
 
-    let statusText = "";
-    if (savings > 0) {
-        statusText = "Good 👍 You are saving money";
-    } else if (savings === 0) {
-        statusText = "Break-even ⚠️ No savings";
-    } else {
-        statusText = "Overspending ❌ Reduce expenses";
-    }
+  <input type="number" id="rent" placeholder="Rent / Housing (₹)">
+  <input type="number" id="food" placeholder="Food & Groceries (₹)">
+  <input type="number" id="transport" placeholder="Transport (₹)">
+  <input type="number" id="others" placeholder="Other Expenses (₹)">
 
-    document.getElementById("status").innerText = statusText;
+  <button onclick="calculateBudget()">Plan Budget</button>
 
-    drawChart(rent, food, transport, others);
-}
+  <div class="result">
+    <p>Total Expenses: ₹<span id="expenses">0</span></p>
+    <p>Savings Left: ₹<span id="savings">0</span></p>
+    <p>Status: <span id="status">—</span></p>
+  </div>
 
-function drawChart(rent, food, transport, others) {
+  <canvas id="budgetChart"></canvas>
+</div>
 
-    let ctx = document.getElementById("budgetChart").getContext("2d");
+<!-- ORDER MATTERS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/budgetSimulation.js"></script>
 
-    if (chart) {
-        chart.destroy();
-    }
-
-    chart = new Chart(ctx, {
-        type: "pie",
-        data: {
-            labels: ["Rent", "Food", "Transport", "Others"],
-            datasets: [{
-                data: [rent, food, transport, others]
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
-}
+</body>
+</html>
