@@ -1,37 +1,40 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Budget Planner - FinLearnX</title>
-    <link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/budgetsSimulation.css">
+  <title>Budget Planner - FinLearnX</title>
 
-<script src="../js/loanSimulation.js"></script>
-
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/budgetsSimulation.css">
 </head>
+
 <body>
 
+<a href="../index.html" class="back-link">← Back to Home</a>
+
 <div class="box">
-    <h2>Monthly Budget Planner</h2>
+  <h2>Monthly Budget Planner</h2>
 
-    <input type="number" id="income" placeholder="Monthly Income (₹)">
+  <input type="number" id="income" placeholder="Monthly Income (₹)">
 
-    <input type="number" id="rent" placeholder="Rent / Housing (₹)">
-    <input type="number" id="food" placeholder="Food & Groceries (₹)">
-    <input type="number" id="transport" placeholder="Transport (₹)">
-    <input type="number" id="others" placeholder="Other Expenses (₹)">
+  <input type="number" id="rent" placeholder="Rent / Housing (₹)">
+  <input type="number" id="food" placeholder="Food & Groceries (₹)">
+  <input type="number" id="transport" placeholder="Transport (₹)">
+  <input type="number" id="others" placeholder="Other Expenses (₹)">
 
-    <button onclick="calculateBudget()">Plan Budget</button>
+  <button onclick="calculateBudget()">Plan Budget</button>
 
-    <div class="result">
-        <p>Total Expenses: ₹<span id="expenses">0</span></p>
-        <p>Savings Left: ₹<span id="savings">0</span></p>
-        <p>Status: <span id="status">—</span></p>
-    </div>
+  <div class=" */
 
-    <canvas id="budgetChart"></canvas>
+  <div class="result">
+    <p>Total Expenses: ₹<span id="expenses">0</span></p>
+    <p>Savings Left: ₹<span id="savings">0</span></p>
+    <p>Status: <span id="status">—</span></p>
+  </div>
+
+  <canvas id="budgetChart"></canvas>
 </div>
 
+<!-- JS: ORDER MATTERS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../js/budgetSimulation.js"></script>
 
