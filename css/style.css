@@ -310,3 +310,71 @@ body {
 .simulation-row.purple button {
   background: linear-gradient(135deg, #7c3aed, #5b21b6);
 }
+/* ======================
+   QUIZ SECTION STYLES
+====================== */
+
+.quiz-section {
+  max-width: 1100px;
+  margin: 120px auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #14532d;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+.quiz-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: white;
+  padding: 32px 40px;
+  border-radius: 22px;
+
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.quiz-card:hover {
+  transform: translateY(-6px);
+}
+
+.quiz-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  color: #1f2933;
+}
+
+.quiz-info p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #555;
+  max-width: 600px;
+}
+
+.quiz-card button {
+  padding: 14px 36px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+.quiz-card button:hover {
+  opacity: 0.95;
+}
