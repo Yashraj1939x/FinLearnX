@@ -1,3 +1,4 @@
+alert("moneyQuiz.js loaded");
 window.calculateScore = function () {
   const resultDiv = document.getElementById("result");
 
