@@ -378,3 +378,48 @@ body {
 .quiz-card button:hover {
   opacity: 0.95;
 }
+.platform-section {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #eaf7f1, #f6fbf9);
+  text-align: center;
+}
+
+.platform-title {
+  font-size: 2rem;
+  color: #1e7f4f;
+  margin-bottom: 10px;
+}
+
+.platform-subtitle {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #555;
+  font-size: 1.05rem;
+}
+
+.platform-card {
+  max-width: 420px;
+  margin: auto;
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-8px);
+}
+
+.platform-card h3 {
+  color: #2d6a4f;
+  margin-bottom: 12px;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #1e7f4f;
+}
