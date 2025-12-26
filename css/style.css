@@ -423,3 +423,59 @@ body {
   font-weight: bold;
   color: #1e7f4f;
 }
+/* =========================
+   HERO FULL SCREEN SECTION
+========================= */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    to bottom,
+    #f7faf6,
+    #eef5ef
+  );
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  color: #14532d;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.scroll-indicator {
+  margin-top: 60px;
+  font-size: 1rem;
+  color: #777;
+  animation: bounce 1.8s infinite;
+}
+
+/* Scroll arrow animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+.topics-section,
+.simulations-section,
+.quiz-section {
+  margin-top: 100px;
+}
