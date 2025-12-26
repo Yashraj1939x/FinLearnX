@@ -427,17 +427,17 @@ body {
    HERO FULL SCREEN SECTION
 ========================= */
 
+/* =========================
+   FULL SCREEN HERO FIX
+========================= */
+
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(
-    to bottom,
-    #f7faf6,
-    #eef5ef
-  );
+  background: linear-gradient(to bottom, #f7faf6, #eef5ef);
 }
 
 .hero-content {
@@ -449,14 +449,21 @@ body {
 .hero-title {
   font-size: 4rem;
   color: #14532d;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
 }
 
 .hero-subtitle {
   font-size: 1.4rem;
   color: #555;
-  line-height: 1.6;
+  margin: 0;
 }
+
+.scroll-indicator {
+  margin-top: 50px;
+  font-size: 1rem;
+  color: #777;
+}
+
 
 .scroll-indicator {
   margin-top: 60px;
