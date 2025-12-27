@@ -1,23 +1,39 @@
-<h2>Goal-Based Monthly Budget Planner</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Budget Planner - FinLearnX</title>
 
-<input type="number" id="income" placeholder="Monthly Income (₹)">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/budgetSimulation.css">
+</head>
 
-<input type="number" id="savingPercent" placeholder="Savings Goal (%)">
+<body>
 
-<button onclick="planBudget()">Generate Smart Budget</button>
+<a href="../index.html" class="back-link">← Back to Home</a>
 
-<div class="result">
-  <h3>Recommended Budget</h3>
+<div class="box">
+  <h2>Goal-Based Monthly Budget Planner</h2>
 
-  <p>Savings: ₹<span id="saveAmount">0</span></p>
+  <input type="number" id="income" placeholder="Monthly Income (₹)">
+  <input type="number" id="savingPercent" placeholder="Savings Goal (%)">
 
-  <p>Rent / Housing: ₹<span id="rentAmt">0</span></p>
-  <p>Food & Groceries: ₹<span id="foodAmt">0</span></p>
-  <p>Transport: ₹<span id="transportAmt">0</span></p>
-  <p>Personal & Lifestyle: ₹<span id="personalAmt">0</span></p>
-  <p>Miscellaneous: ₹<span id="miscAmt">0</span></p>
+  <button onclick="planBudget()">Generate Smart Budget</button>
 
-  <p><strong>Status:</strong> <span id="status">—</span></p>
+  <div class="result">
+    <p>Savings: ₹<span id="saveAmount">0</span></p>
+    <p>Rent / Housing: ₹<span id="rentAmt">0</span></p>
+    <p>Food & Groceries: ₹<span id="foodAmt">0</span></p>
+    <p>Transport: ₹<span id="transportAmt">0</span></p>
+    <p>Personal & Lifestyle: ₹<span id="personalAmt">0</span></p>
+    <p>Miscellaneous: ₹<span id="miscAmt">0</span></p>
+    <p><strong>Status:</strong> <span id="status">—</span></p>
+  </div>
+
+  <canvas id="budgetChart"></canvas>
 </div>
 
-<canvas id="budgetChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/budgetSimulation.js"></script>
+
+</body>
+</html>
