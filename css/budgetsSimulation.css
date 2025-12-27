@@ -71,3 +71,12 @@ button:hover {
 canvas {
   margin-top: 25px;
 }
+input {
+  width: 48%;
+}
+
+@media (max-width: 600px) {
+  input {
+    width: 100%;
+  }
+}
