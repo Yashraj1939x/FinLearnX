@@ -1,46 +1,34 @@
-let chart;
-window.calculateBudget = function () {
+function planBudget() {
   const income = Number(document.getElementById("income").value);
+  const savePercent = Number(document.getElementById("savingPercent").value);
 
-  const rent = Number(document.getElementById("rent").value);
-  const food = Number(document.getElementById("food").value);
-  const transport = Number(document.getElementById("transport").value);
-  const others = Number(document.getElementById("others").value);
-
-  const totalExpenses = rent + food + transport + others;
-  const savings = income - totalExpenses;
-
-  document.getElementById("expenses").innerText = totalExpenses;
-  document.getElementById("savings").innerText = savings;
-
-  let statusText = "";
-  if (savings > 0) {
-    statusText = "Good 👍 You are saving money";
-  } else if (savings === 0) {
-    statusText = "Break-even ⚠️ No savings";
-  } else {
-    statusText = "Overspending ❌ Reduce expenses";
+  if (income <= 0 || savePercent <= 0 || savePercent >= 80) {
+    alert("Please enter valid income and savings percentage");
+    return;
   }
 
-  document.getElementById("status").innerText = statusText;
+  const savings = income * (savePercent / 100);
+  const remaining = income - savings;
 
-  drawChart(rent, food, transport, others);
-}
+  // Recommended allocation
+  const rent = remaining * 0.35;
+  const food = remaining * 0.25;
+  const transport = remaining * 0.15;
+  const personal = remaining * 0.15;
+  const misc = remaining * 0.10;
 
-function drawChart(rent, food, transport, others) {
-  const ctx = document.getElementById("budgetChart").getContext("2d");
+  document.getElementById("saveAmount").innerText = savings.toFixed(0);
+  document.getElementById("rentAmt").innerText = rent.toFixed(0);
+  document.getElementById("foodAmt").innerText = food.toFixed(0);
+  document.getElementById("transportAmt").innerText = transport.toFixed(0);
+  document.getElementById("personalAmt").innerText = personal.toFixed(0);
+  document.getElementById("miscAmt").innerText = misc.toFixed(0);
 
-  if (chart) chart.destroy();
+  let status = "Excellent planning 👍";
+  if (savePercent > 40) status = "Aggressive savings ⚠️";
+  if (remaining < income * 0.4) status = "Tight budget ❌";
 
-  chart = new Chart(ctx, {
-    type: "pie",
-    data: {
-      labels: ["Rent", "Food", "Transport", "Others"],
-      datasets: [{
-        data: [rent, food, transport, others],
-        backgroundColor: ["#22c55e", "#4ade80", "#86efac", "#bbf7d0"]
-      }]
-    },
-    options: { responsive: true }
-  });
+  document.getElementById("status").innerText = status;
+
+  updateChart([rent, food, transport, personal, misc, savings]);
 }
