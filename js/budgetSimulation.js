@@ -3,7 +3,6 @@ let chart;
 function planBudget() {
   const income = Number(document.getElementById("income").value);
   const savePercent = Number(document.getElementById("savingPercent").value);
-
   if (!income || !savePercent || savePercent >= 80) {
     alert("Enter valid income and savings percentage (below 80%)");
     return;
