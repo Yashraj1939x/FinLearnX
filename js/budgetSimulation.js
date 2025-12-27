@@ -1,16 +1,17 @@
+let chart;
+
 function planBudget() {
   const income = Number(document.getElementById("income").value);
   const savePercent = Number(document.getElementById("savingPercent").value);
 
-  if (income <= 0 || savePercent <= 0 || savePercent >= 80) {
-    alert("Please enter valid income and savings percentage");
+  if (!income || !savePercent || savePercent >= 80) {
+    alert("Enter valid income and savings percentage (below 80%)");
     return;
   }
 
   const savings = income * (savePercent / 100);
   const remaining = income - savings;
 
-  // Recommended allocation
   const rent = remaining * 0.35;
   const food = remaining * 0.25;
   const transport = remaining * 0.15;
@@ -24,11 +25,24 @@ function planBudget() {
   document.getElementById("personalAmt").innerText = personal.toFixed(0);
   document.getElementById("miscAmt").innerText = misc.toFixed(0);
 
-  let status = "Excellent planning 👍";
-  if (savePercent > 40) status = "Aggressive savings ⚠️";
-  if (remaining < income * 0.4) status = "Tight budget ❌";
+  document.getElementById("status").innerText =
+    savePercent > 40 ? "Aggressive Savings ⚠️" : "Balanced Budget 👍";
 
-  document.getElementById("status").innerText = status;
+  drawChart([rent, food, transport, personal, misc, savings]);
+}
 
-  updateChart([rent, food, transport, personal, misc, savings]);
+function drawChart(data) {
+  const ctx = document.getElementById("budgetChart");
+
+  if (chart) chart.destroy();
+
+  chart = new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: ["Rent", "Food", "Transport", "Personal", "Misc", "Savings"],
+      datasets: [{
+        data: data
+      }]
+    }
+  });
 }
