@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Banking</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Banking</h1>
+    <p class="subtitle">
+      Understand how banks work through real-life banking decisions.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You are opening your <strong>first bank account</strong>
+        as a college student.
+      </p>
+      <p class="goal">
+        🎯 Goal: Use banking services safely and efficiently.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="bankMain('A')">
+        A️⃣ Open account without understanding features
+      </button>
+
+      <button class="choice" onclick="bankMain('B')">
+        B️⃣ Compare account types and charges
+      </button>
+
+      <button class="choice" onclick="bankMain('C')">
+        C️⃣ Use someone else’s account
+      </button>
+
+      <div id="bank-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Check these details of your bank account:</p>
+      <ul>
+        <li>🏦 Account type (Savings / Student)</li>
+        <li>💳 Debit card charges</li>
+        <li>📱 Net banking & UPI access</li>
+      </ul>
+      <p class="hint">
+        Banking awareness prevents mistakes and fraud.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Banks are tools — using them wisely is your responsibility.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Learn smart banking habits through real situations.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>💳 Scenario 1: Debit Card Usage</h3>
+      <p>You receive your debit card.</p>
+
+      <p><strong>What should you do first?</strong></p>
+
+      <button class="choice" onclick="bank1('A', this)">A️⃣ Share PIN with family</button>
+      <button class="choice" onclick="bank1('B', this)">B️⃣ Change PIN and keep it private</button>
+      <button class="choice" onclick="bank1('C', this)">C️⃣ Write PIN on card</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>📉 Scenario 2: Minimum Balance</h3>
+      <p>Your bank requires a minimum balance.</p>
+
+      <p><strong>Your approach?</strong></p>
+
+      <button class="choice" onclick="bank2('A', this)">A️⃣ Ignore requirement</button>
+      <button class="choice" onclick="bank2('B', this)">B️⃣ Maintain required balance</button>
+      <button class="choice" onclick="bank2('C', this)">C️⃣ Close account suddenly</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>📱 Scenario 3: UPI & Net Banking</h3>
+      <p>You enable UPI and net banking.</p>
+
+      <p><strong>Best practice?</strong></p>
+
+      <button class="choice" onclick="bank3('A', this)">A️⃣ Use public Wi-Fi</button>
+      <button class="choice" onclick="bank3('B', this)">B️⃣ Use secure devices</button>
+      <button class="choice" onclick="bank3('C', this)">C️⃣ Share OTP when asked</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>🚨 Scenario 4: Suspicious Transaction</h3>
+      <p>You notice an unknown debit from your account.</p>
+
+      <p><strong>What will you do?</strong></p>
+
+      <button class="choice" onclick="bank4('A', this)">A️⃣ Ignore it</button>
+      <button class="choice" onclick="bank4('B', this)">B️⃣ Inform bank immediately</button>
+      <button class="choice" onclick="bank4('C', this)">C️⃣ Post on social media</button>
+    </div>
+
+  </div>
+
+  <script src="banking-lbd.js"></script>
+</body>
+</html>
