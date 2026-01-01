@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Loan & Debt</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Loan & Debt</h1>
+    <p class="subtitle">
+      Understand how debt works and how to avoid long-term financial traps.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You are considering taking a loan for personal needs
+        while already managing monthly expenses.
+      </p>
+      <p class="goal">
+        🎯 Goal: Use debt responsibly without harming future finances.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="debtMain('A')">
+        A️⃣ Take loan because money is needed now
+      </button>
+
+      <button class="choice" onclick="debtMain('B')">
+        B️⃣ Evaluate need, EMI, and repayment capacity
+      </button>
+
+      <button class="choice" onclick="debtMain('C')">
+        C️⃣ Take multiple small loans
+      </button>
+
+      <div id="debt-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Before taking any loan, ask yourself:</p>
+      <ul>
+        <li>📌 Is this loan necessary?</li>
+        <li>💰 Can I repay EMI comfortably?</li>
+        <li>⏳ What happens if income stops?</li>
+      </ul>
+      <p class="hint">
+        Debt decisions should be slow, not emotional.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Debt is a tool — misuse turns it into a trap.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Learn how debt decisions impact your future.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>📊 Scenario 1: Good Debt vs Bad Debt</h3>
+      <p>You want a loan for education vs lifestyle upgrade.</p>
+
+      <p><strong>Your choice?</strong></p>
+
+      <button class="choice" onclick="debt1('A', this)">A️⃣ Education loan</button>
+      <button class="choice" onclick="debt1('B', this)">B️⃣ Gadget loan</button>
+      <button class="choice" onclick="debt1('C', this)">C️⃣ Vacation loan</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>📉 Scenario 2: Rising Debt</h3>
+      <p>Your EMIs now consume 50% of income.</p>
+
+      <p><strong>What should you do?</strong></p>
+
+      <button class="choice" onclick="debt2('A', this)">A️⃣ Take another loan</button>
+      <button class="choice" onclick="debt2('B', this)">B️⃣ Reduce expenses & repay faster</button>
+      <button class="choice" onclick="debt2('C', this)">C️⃣ Ignore for now</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>⏰ Scenario 3: Missed EMI</h3>
+      <p>You miss an EMI due to poor planning.</p>
+
+      <p><strong>Your action?</strong></p>
+
+      <button class="choice" onclick="debt3('A', this)">A️⃣ Delay further</button>
+      <button class="choice" onclick="debt3('B', this)">B️⃣ Pay immediately & inform lender</button>
+      <button class="choice" onclick="debt3('C', this)">C️⃣ Take new loan to pay EMI</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>🔄 Scenario 4: Minimum Due Trap</h3>
+      <p>You pay only minimum due on credit card debt.</p>
+
+      <p><strong>What happens?</strong></p>
+
+      <button class="choice" onclick="debt4('A', this)">A️⃣ Debt reduces fast</button>
+      <button class="choice" onclick="debt4('B', this)">B️⃣ Interest keeps growing</button>
+      <button class="choice" onclick="debt4('C', this)">C️⃣ No impact</button>
+    </div>
+
+  </div>
+
+  <script src="loan-debt-lbd.js"></script>
+</body>
+</html>
