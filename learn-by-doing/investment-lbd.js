@@ -15,6 +15,7 @@ function investMain(option) {
       "⚠️ <span class='warn'>Avoiding investing completely can limit wealth growth.</span>";
   }
 }
+
 /* ================= HELPER ================= */
 function showInvestFeedback(btn, msg) {
   const card = btn.closest(".scenario-card");
