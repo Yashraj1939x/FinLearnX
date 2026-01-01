@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Budgeting</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Budgeting</h1>
+    <p class="subtitle">
+      Make real decisions. Learn from outcomes.
+    </p>
+
+    <!-- Scenario Card -->
+    <div class="card">
+      <h2>📘 Scenario</h2>
+      <p>
+        You are a college student earning <strong>₹15,000 per month</strong> from an internship.
+        Your expenses include food, travel, mobile recharge, subscriptions, and outings.
+      </p>
+      <p class="goal">
+        🎯 Goal: Save at least <strong>20%</strong> of your income without affecting daily life.
+      </p>
+    </div>
+
+    <!-- Decision Section -->
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="selectChoice('A')">
+        A️⃣ Spend first, save whatever is left
+      </button>
+
+      <button class="choice" onclick="selectChoice('B')">
+        B️⃣ Save first, spend the remaining
+      </button>
+
+      <button class="choice" onclick="selectChoice('C')">
+        C️⃣ No planning, manage day by day
+      </button>
+
+      <div id="feedback" class="feedback"></div>
+    </div>
+
+    <!-- Mini Task -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>
+        Write down your <strong>last 3 expenses</strong> and mark each as:
+      </p>
+      <ul>
+        <li>✅ Need</li>
+        <li>⚠️ Want</li>
+      </ul>
+      <p class="hint">
+        This habit builds awareness — the first step of budgeting.
+      </p>
+    </div>
+
+    <!-- Key Takeaway -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Budgeting is not about restriction, it’s about control.”
+      </p>
+    </div>
+
+  </div>
+
+  <script src="lbd.js"></script>
+</body>
+</html>
