@@ -15,7 +15,6 @@ function bankMain(option) {
       "❌ <span class='wrong'>Using someone else’s account is unsafe and risky.</span>";
   }
 }
-
 /* ================= HELPER ================= */
 function showBankFeedback(btn, msg) {
   const card = btn.closest(".scenario-card");
