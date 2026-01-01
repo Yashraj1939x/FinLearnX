@@ -588,3 +588,59 @@ body {
 .content {
   padding-top: 60px;
 }
+.learn-by-doing-section {
+  margin-top: 80px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #f8fbff, #eef4ff);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #1e3a8a;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.lbd-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.lbd-card {
+  width: 300px;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.lbd-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.lbd-card h3 {
+  margin-top: 0;
+  color: #1e40af;
+}
+
+.lbd-card p {
+  color: #444;
+  line-height: 1.6;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 15px;
+  color: #2563eb;
+  font-weight: bold;
+}
