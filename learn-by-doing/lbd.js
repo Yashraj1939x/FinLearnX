@@ -20,117 +20,12 @@ function selectChoice(option) {
 
 
 /* =========================
-   PRACTICE SCENARIO FEEDBACK
+   PRACTICE SCENARIOS
 ========================= */
 
-function scenario1(option, btn) {
-  const feedback = createFeedback(btn);
-
-  if (option === "A") {
-    feedback.innerHTML =
-      "⚠️ <span class='warn'>Reducing savings may give relief now, but weakens long-term habits.</span>";
-  } 
-  else if (option === "B") {
-    feedback.innerHTML =
-      "✅ <span class='correct'>Cutting non-essential spending is the smartest way to save.</span>";
-  } 
-  else if (option === "C") {
-    feedback.innerHTML =
-      "❌ <span class='wrong'>Skipping savings repeatedly creates financial stress later.</span>";
-  }
-}
-
-function scenario2(option, btn) {
-  const feedback = createFeedback(btn);
-
-  if (option === "A") {
-    feedback.innerHTML =
-      "❌ <span class='wrong'>Treating wants as needs hides unnecessary spending.</span>";
-  } 
-  else if (option === "B") {
-    feedback.innerHTML =
-      "✅ <span class='correct'>Recognizing convenience as a want improves budgeting clarity.</span>";
-  } 
-  else if (option === "C") {
-    feedback.innerHTML =
-      "⚠️ <span class='warn'>Stopping tracking removes awareness of where money goes.</span>";
-  }
-}
-
-function scenario3(option, btn) {
-  const feedback = createFeedback(btn);
-
-  if (option === "A") {
-    feedback.innerHTML =
-      "❌ <span class='wrong'>Spending early income risks missing fixed payments.</span>";
-  } 
-  else if (option === "B") {
-    feedback.innerHTML =
-      "✅ <span class='correct'>Securing fixed expenses first keeps finances stable.</span>";
-  } 
-  else if (option === "C") {
-    feedback.innerHTML =
-      "⚠️ <span class='warn'>Avoiding spending completely is unrealistic and stressful.</span>";
-  }
-}
-
-function scenario4(option, btn) {
-  const feedback = createFeedback(btn);
-
-  if (option === "A") {
-    feedback.innerHTML =
-      "✅ <span class='correct'>Savings exist to protect you during emergencies.</span>";
-  } 
-  else if (option === "B") {
-    feedback.innerHTML =
-      "⚠️ <span class='warn'>Borrowing helps temporarily but creates dependency.</span>";
-  } 
-  else if (option === "C") {
-    feedback.innerHTML =
-      "❌ <span class='wrong'>Using credit for emergencies can trap you in debt.</span>";
-  }
-}
-
-function scenario5(option, btn) {
-  const feedback = createFeedback(btn);
-
-  if (option === "A") {
-    feedback.innerHTML =
-      "❌ <span class='wrong'>Discounts still cost money if they were not planned.</span>";
-  } 
-  else if (option === "B") {
-    feedback.innerHTML =
-      "✅ <span class='correct'>Checking budget before buying prevents impulse purchases.</span>";
-  } 
-  else if (option === "C") {
-    feedback.innerHTML =
-      "⚠️ <span class='warn'>Ignoring everything may cause missed planned needs.</span>";
-  }
-}
-
-function scenario6(option, btn) {
-  const feedback = createFeedback(btn);
-
-  if (option === "A") {
-    feedback.innerHTML =
-      "❌ <span class='wrong'>Matching lifestyles beyond income leads to financial pressure.</span>";
-  } 
-  else if (option === "B") {
-    feedback.innerHTML =
-      "✅ <span class='correct'>Balancing enjoyment and budget builds confidence.</span>";
-  } 
-  else if (option === "C") {
-    feedback.innerHTML =
-      "⚠️ <span class='warn'>Avoiding social life is not a healthy financial solution.</span>";
-  }
-}
-
-
-/* =========================
-   HELPER FUNCTION
-========================= */
-function createFeedback(button) {
+function showFeedback(button, message) {
   const card = button.closest(".scenario-card");
+
   let feedback = card.querySelector(".feedback");
 
   if (!feedback) {
@@ -139,5 +34,101 @@ function createFeedback(button) {
     card.appendChild(feedback);
   }
 
-  return feedback;
+  feedback.innerHTML = message;
+}
+
+/* -------- Scenario 1 -------- */
+function scenario1(option, btn) {
+  if (option === "A") {
+    showFeedback(btn,
+      "⚠️ <span class='warn'>Reducing savings may help now, but it weakens long-term discipline.</span>");
+  } 
+  else if (option === "B") {
+    showFeedback(btn,
+      "✅ <span class='correct'>Cutting non-essential spending is the most effective solution.</span>");
+  } 
+  else {
+    showFeedback(btn,
+      "❌ <span class='wrong'>Ignoring savings repeatedly leads to financial stress.</span>");
+  }
+}
+
+/* -------- Scenario 2 -------- */
+function scenario2(option, btn) {
+  if (option === "A") {
+    showFeedback(btn,
+      "❌ <span class='wrong'>Treating wants as needs hides unnecessary spending.</span>");
+  } 
+  else if (option === "B") {
+    showFeedback(btn,
+      "✅ <span class='correct'>Reclassifying wants improves budgeting clarity.</span>");
+  } 
+  else {
+    showFeedback(btn,
+      "⚠️ <span class='warn'>Stopping tracking removes awareness of spending.</span>");
+  }
+}
+
+/* -------- Scenario 3 -------- */
+function scenario3(option, btn) {
+  if (option === "A") {
+    showFeedback(btn,
+      "❌ <span class='wrong'>Spending early income risks missing fixed payments.</span>");
+  } 
+  else if (option === "B") {
+    showFeedback(btn,
+      "✅ <span class='correct'>Handling fixed expenses first keeps finances stable.</span>");
+  } 
+  else {
+    showFeedback(btn,
+      "⚠️ <span class='warn'>Avoiding spending completely is unrealistic.</span>");
+  }
+}
+
+/* -------- Scenario 4 -------- */
+function scenario4(option, btn) {
+  if (option === "A") {
+    showFeedback(btn,
+      "✅ <span class='correct'>Savings exist to protect you during emergencies.</span>");
+  } 
+  else if (option === "B") {
+    showFeedback(btn,
+      "⚠️ <span class='warn'>Borrowing helps temporarily but creates dependency.</span>");
+  } 
+  else {
+    showFeedback(btn,
+      "❌ <span class='wrong'>Using credit can trap you in long-term debt.</span>");
+  }
+}
+
+/* -------- Scenario 5 -------- */
+function scenario5(option, btn) {
+  if (option === "A") {
+    showFeedback(btn,
+      "❌ <span class='wrong'>Unplanned discounts still damage your budget.</span>");
+  } 
+  else if (option === "B") {
+    showFeedback(btn,
+      "✅ <span class='correct'>Checking budget prevents impulse purchases.</span>");
+  } 
+  else {
+    showFeedback(btn,
+      "⚠️ <span class='warn'>Ignoring all sales may skip planned needs.</span>");
+  }
+}
+
+/* -------- Scenario 6 -------- */
+function scenario6(option, btn) {
+  if (option === "A") {
+    showFeedback(btn,
+      "❌ <span class='wrong'>Matching others’ lifestyle creates financial pressure.</span>");
+  } 
+  else if (option === "B") {
+    showFeedback(btn,
+      "✅ <span class='correct'>Balancing fun and budget builds confidence.</span>");
+  } 
+  else {
+    showFeedback(btn,
+      "⚠️ <span class='warn'>Avoiding social life is not a healthy solution.</span>");
+  }
 }
