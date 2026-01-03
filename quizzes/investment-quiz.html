@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investment Personality Quiz</title>
+  <link rel="stylesheet" href="investment-quiz.css">
+</head>
+<body>
+
+<h1 class="quiz-title">📈 Investment Personality Quiz</h1>
+
+<form id="quizForm">
+
+  <div class="question">
+    <p>1. If your investment value drops suddenly, what do you do?</p>
+    <label><input type="radio" name="q1" value="1"> Withdraw immediately</label>
+    <label><input type="radio" name="q1" value="2"> Wait and observe</label>
+    <label><input type="radio" name="q1" value="3"> Invest more at lower price</label>
+  </div>
+
+  <div class="question">
+    <p>2. Your main investment goal is:</p>
+    <label><input type="radio" name="q2" value="1"> Capital safety</label>
+    <label><input type="radio" name="q2" value="2"> Balanced growth</label>
+    <label><input type="radio" name="q2" value="3"> High returns</label>
+  </div>
+
+  <div class="question">
+    <p>3. How long can you keep money invested?</p>
+    <label><input type="radio" name="q3" value="1"> Less than 1 year</label>
+    <label><input type="radio" name="q3" value="2"> 3–5 years</label>
+    <label><input type="radio" name="q3" value="3"> 10+ years</label>
+  </div>
+
+  <button type="button" onclick="calculateResult()">Get Result</button>
+</form>
+
+<div id="result" class="result"></div>
+
+<script src="investment-quiz.js"></script>
+</body>
+</html>
