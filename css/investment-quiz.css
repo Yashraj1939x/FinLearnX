@@ -38,3 +38,19 @@ button {
   margin-top: 30px;
   font-size: 1.2rem;
 }
+
+.answers {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #f9fbff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.answers ul {
+  line-height: 1.8;
+}
+
+.hidden {
+  display: none;
+}
