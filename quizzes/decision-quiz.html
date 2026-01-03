@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Financial Decision Quiz</title>
+  <link rel="stylesheet" href="decision-quiz.css">
+</head>
+<body>
+
+<h1 class="quiz-title">💡 Financial Decision-Making Quiz</h1>
+
+<form id="decisionQuiz">
+
+  <div class="question">
+    <p>1. You receive unexpected money. What do you do?</p>
+    <label><input type="radio" name="q1" value="3"> Save or invest</label>
+    <label><input type="radio" name="q1" value="2"> Spend partially</label>
+    <label><input type="radio" name="q1" value="1"> Spend all</label>
+  </div>
+
+  <div class="question">
+    <p>2. Before buying something expensive, you:</p>
+    <label><input type="radio" name="q2" value="3"> Compare and plan</label>
+    <label><input type="radio" name="q2" value="2"> Think briefly</label>
+    <label><input type="radio" name="q2" value="1"> Buy instantly</label>
+  </div>
+
+  <div class="question">
+    <p>3. Your monthly expenses exceed income. You:</p>
+    <label><input type="radio" name="q3" value="3"> Reduce expenses</label>
+    <label><input type="radio" name="q3" value="2"> Borrow temporarily</label>
+    <label><input type="radio" name="q3" value="1"> Ignore the issue</label>
+  </div>
+
+  <button type="button" onclick="showDecisionResult()">Check Result</button>
+</form>
+
+<div id="decisionResult" class="result"></div>
+
+<script src="decision-quiz.js"></script>
+</body>
+</html>
