@@ -1,5 +1,5 @@
 function calculateResult() {
-  const questions = ["q1", "q2", "q3"];
+  const questions = ["q1","q2","q3","q4","q5","q6"];
   let score = 0;
 
   for (let q of questions) {
@@ -11,15 +11,23 @@ function calculateResult() {
     score += parseInt(selected.value);
   }
 
-  let resultText = "";
+  let message = "";
 
-  if (score <= 4) {
-    resultText = "🟢 Conservative Investor – You prefer safety and low risk.";
-  } else if (score <= 6) {
-    resultText = "🔵 Balanced Investor – You balance risk and returns wisely.";
+  if (score >= 15) {
+    message = "🟢 Excellent! You understand investment basics well.";
+  } else if (score >= 10) {
+    message = "🟡 Good! You have basic understanding, keep learning.";
   } else {
-    resultText = "🔴 Aggressive Investor – You aim for high growth and accept risk.";
+    message = "🔴 Beginner level. Explore concepts before investing.";
   }
 
-  document.getElementById("result").innerHTML = resultText;
+  document.getElementById("result").innerHTML = `
+    <h2>Your Result</h2>
+    <p>${message}</p>
+    <button onclick="showAnswers()">View Answers</button>
+  `;
+}
+
+function showAnswers() {
+  document.getElementById("answers").classList.remove("hidden");
 }
