@@ -1,263 +1,388 @@
-/* =====================
-   GLOBAL STYLES
-===================== */
+/* ========= Root + Theme ========= */
+:root {
+  --bg-gradient: radial-gradient(circle at top left, #102a43, #020617 55%, #020b16);
+  --accent: #00c896;           /* success/primary */ 
+  --accent-soft: rgba(0, 200, 150, 0.15);
+  --accent-strong: #00f6b6;
+  --danger: #f67280;
+  --text-main: #e4ecf5;
+  --text-muted: #8a93a5;
+  --card-bg: rgba(15, 23, 42, 0.78);
+  --card-border: rgba(148, 163, 184, 0.35);
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --transition-fast: 0.18s ease-out;
+  --transition-med: 0.28s ease-out;
+  --blur-strong: 18px;
+  --focus-ring: 0 0 0 1px rgba(148, 163, 184, 0.7), 0 0 0 6px rgba(56, 189, 248, 0.32);
+  --glass-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='noStitch'/%3E%3CfeColorMatrix type='saturate' values='0'%3E%3C/feColorMatrix%3E%3C/feFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+}
 
-* {
+/* ========= Global ========= */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, #eef6f1, #f7fbf9);
   margin: 0;
-  padding: 32px 20px 60px;
-  color: #2c3e32;
-  line-height: 1.75;
+  min-height: 100vh;
+  padding: 32px 18px 40px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(0, 200, 150, 0.16), transparent 55%),
+    radial-gradient(circle at 85% 100%, rgba(246, 114, 128, 0.18), transparent 55%),
+    var(--bg-gradient);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
 }
 
-/* =====================
-   PAGE TITLE
-===================== */
+/* Subtle grid / texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    var(--glass-noise);
+  background-size: 22px 22px, 22px 22px, 100px 100px;
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+  z-index: -1;
+}
 
+/* ========= Page Title ========= */
 .page-title {
+  position: relative;
   text-align: center;
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: #145a32;
-  margin-bottom: 10px;
+  margin: 0 0 28px;
+  font-size: clamp(2.1rem, 2.5vw + 1.4rem, 2.8rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  text-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
 }
 
 .page-title::after {
   content: "";
   display: block;
-  width: 90px;
-  height: 4px;
-  background: linear-gradient(90deg, #1f6b3b, #3cb371);
-  margin: 12px auto 40px;
-  border-radius: 10px;
-}
-
-/* =====================
-   TABS
-===================== */
-
-.tab-container {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.tab-btn {
-  padding: 14px 28px;
-  border: none;
-  background: rgba(255, 255, 255, 0.75);
-  color: #1f6b3b;
-  cursor: pointer;
+  width: 84px;
+  height: 3px;
+  margin: 14px auto 0;
   border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 600;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: all 0.35s ease;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 0 18px rgba(0, 246, 182, 0.75);
 }
 
+/* ========= Tabs ========= */
+.tab-container {
+  position: relative;
+  display: inline-flex;
+  align-self: center;
+  padding: 5px;
+  gap: 8px;
+  border-radius: var(--radius-pill);
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  margin-bottom: 28px;
+}
+
+/* Tab button base */
+.tab-btn {
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 26px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  overflow: hidden;
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    text-shadow var(--transition-fast);
+}
+
+/* Hover / focus */
 .tab-btn:hover {
-  transform: translateY(-2px);
-  background: #e6f4ec;
+  color: var(--text-main);
+  transform: translateY(-1px);
 }
 
+.tab-btn:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+/* Active tab */
 .tab-btn.active {
-  background: linear-gradient(135deg, #1f6b3b, #2fa36a);
-  color: #ffffff;
-  box-shadow: 0 10px 30px rgba(31, 107, 59, 0.35);
+  color: #0b1727;
+  text-shadow: 0 0 10px rgba(15, 23, 42, 0.8);
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow:
+    0 12px 26px rgba(0, 200, 150, 0.45),
+    0 0 0 1px rgba(15, 23, 42, 0.75) inset;
 }
 
-/* =====================
-   TAB CONTENT CONTAINER
-===================== */
+/* Active glow overlay */
+.tab-btn.active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.25), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.4), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  pointer-events: none;
+}
 
+/* ========= Tab Content Wrapper ========= */
 .tab-content {
   display: none;
-  max-width: 1100px;
-  margin: auto;
-  background: #ffffff;
-  padding: 45px 40px;
-  border-radius: 22px;
-  box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.04);
-  animation: fadeUp 0.5s ease;
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto 18px;
+  padding: 26px 26px 28px;
+  border-radius: 26px;
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.75));
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-soft);
+  color: var(--text-main);
+  backdrop-filter: blur(var(--blur-strong));
+  -webkit-backdrop-filter: blur(var(--blur-strong));
+  overflow: hidden;
 }
 
+/* Inner glass highlight + noise */
+.tab-content::before,
+.tab-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tab-content::before {
+  background:
+    radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.13), transparent 60%),
+    radial-gradient(circle at 120% 0%, rgba(0, 200, 150, 0.16), transparent 55%),
+    radial-gradient(circle at -20% 100%, rgba(246, 114, 128, 0.16), transparent 55%);
+  opacity: 0.72;
+  mix-blend-mode: soft-light;
+}
+
+.tab-content::after {
+  background-image: var(--glass-noise);
+  background-size: 120px 120px;
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+}
+
+/* Make the actual content sit above overlays */
+.tab-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Active content animation */
 .tab-content.active {
   display: block;
+  animation: fadeInUp 0.35s var(--transition-med);
 }
 
-@keyframes fadeUp {
+/* ========= Typography inside content ========= */
+.tab-content h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e5f9f4;
+}
+
+.tab-content h3 {
+  margin: 22px 0 8px;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.tab-content p {
+  margin: 8px 0 10px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ========= Lists ========= */
+.tab-content ul {
+  margin: 6px 0 4px;
+  padding-left: 1.1rem;
+  list-style: none;
+}
+
+.tab-content li {
+  position: relative;
+  margin-bottom: 6px;
+  padding-left: 18px;
+  font-size: 0.96rem;
+  color: var(--text-main);
+}
+
+/* Custom bullets */
+.tab-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: radial-gradient(circle, var(--accent-strong), var(--accent));
+  box-shadow: 0 0 12px rgba(0, 246, 182, 0.75);
+  transform: translateY(-50%);
+}
+
+/* Subtle divider lines */
+.tab-content hr {
+  border: none;
+  border-top: 1px dashed rgba(148, 163, 184, 0.45);
+  margin: 18px 0 16px;
+}
+
+/* ========= Utility tags / chips ========= */
+.badge,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.28), rgba(15, 23, 42, 0.9));
+  color: var(--text-main);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.7);
+}
+
+/* Example state colors if you use extra classes */
+.badge--success {
+  background: linear-gradient(135deg, rgba(0, 200, 150, 0.25), rgba(15, 23, 42, 0.95));
+  border-color: rgba(0, 200, 150, 0.7);
+}
+
+.badge--danger {
+  background: linear-gradient(135deg, rgba(246, 114, 128, 0.28), rgba(15, 23, 42, 0.95));
+  border-color: rgba(246, 114, 128, 0.7);
+}
+
+/* ========= Subtle action buttons inside content (optional) ========= */
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn-ghost,
+.btn-solid {
+  position: relative;
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(148, 163, 184, 0.65);
+  cursor: pointer;
+  transition:
+    background var(--transition-med),
+    color var(--transition-med),
+    transform var(--transition-fast),
+    box-shadow var(--transition-med);
+}
+
+.btn-ghost {
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.88));
+  color: var(--text-main);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.92));
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.9);
+}
+
+.btn-solid {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #041016;
+  box-shadow:
+    0 14px 28px rgba(0, 200, 150, 0.5),
+    0 0 0 1px rgba(15, 23, 42, 0.8) inset;
+}
+
+.btn-solid:hover {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow:
+    0 18px 38px rgba(0, 200, 150, 0.7),
+    0 0 24px rgba(0, 246, 182, 0.6);
+}
+
+/* ========= Animations ========= */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* =====================
-   MODULES
-===================== */
+/* ========= Responsive tweaks ========= */
+@media (max-width: 720px) {
+  body {
+    padding: 22px 14px 26px;
+  }
 
-.module {
-  margin-bottom: 50px;
-}
-
-.module h2 {
-  font-size: 1.9rem;
-  color: #145a32;
-  margin-bottom: 24px;
-  padding-left: 14px;
-  border-left: 6px solid #2fa36a;
-}
-
-/* Highlight module (Module 8) */
-.module.highlight {
-  background: linear-gradient(135deg, #e9f7ef, #f6fffb);
-  padding: 30px;
-  border-radius: 18px;
-  border: 1px solid #ccebdd;
-}
-
-/* =====================
-   CARDS
-===================== */
-
-.card {
-  background: linear-gradient(180deg, #ffffff, #f9fcfa);
-  border-radius: 18px;
-  padding: 26px 28px;
-  margin-bottom: 22px;
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.06),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.03);
-  transition: all 0.35s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.12),
-    inset 0 0 0 1px rgba(31, 107, 59, 0.15);
-}
-
-.card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  color: #1f6b3b;
-}
-
-.card p {
-  margin: 0;
-  color: #344e41;
-}
-
-.card ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-
-.card li {
-  margin-bottom: 8px;
-  position: relative;
-}
-
-.card li::marker {
-  color: #2fa36a;
-}
-
-/* =====================
-   RBI SECTION
-===================== */
-
-.rbi-section h1 {
-  font-size: 2.2rem;
-  color: #145a32;
-  margin-bottom: 20px;
-}
-
-.rbi-section .intro {
-  font-size: 1.05rem;
-  background: #f1faf6;
-  padding: 18px 22px;
-  border-left: 5px solid #2fa36a;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.rbi-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px 26px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
-}
-
-.rbi-card.warning {
-  border-left: 5px solid #d9534f;
-  background: #fff5f5;
-}
-
-/* =====================
-   DOCUMENTS SECTION
-===================== */
-
-.banking-docs h1 {
-  font-size: 2.1rem;
-  color: #145a32;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  color: #4f6f61;
-  margin-bottom: 30px;
-}
-
-.doc-section {
-  background: linear-gradient(180deg, #ffffff, #f7fbf9);
-  border-radius: 18px;
-  padding: 26px 28px;
-  margin-bottom: 28px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-}
-
-.doc-section h2 {
-  margin-bottom: 14px;
-  color: #1f6b3b;
-}
-
-.doc-section h3 {
-  margin-top: 16px;
-  margin-bottom: 6px;
-  color: #2d6a4f;
-}
-
-/* =====================
-   RESPONSIVE
-===================== */
-
-@media (max-width: 768px) {
   .page-title {
-    font-size: 2.1rem;
+    font-size: 1.9rem;
+  }
+
+  .tab-container {
+    width: 100%;
+    max-width: 480px;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .tab-btn {
+    flex: 1;
+    padding-inline: 16px;
+    font-size: 0.8rem;
   }
 
   .tab-content {
-    padding: 30px 22px;
-  }
-
-  .card,
-  .doc-section,
-  .rbi-card {
-    padding: 22px;
+    padding: 20px 18px 22px;
+    border-radius: 20px;
   }
 }
