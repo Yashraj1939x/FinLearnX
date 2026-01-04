@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Employment</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Employment</h1>
+    <p class="subtitle">
+      Learn how employment decisions affect your income, stability, and future.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You receive your <strong>first job offer</strong> after college.
+        The salary looks attractive, but you are unsure about details.
+      </p>
+      <p class="goal">
+        🎯 Goal: Make smart employment decisions, not emotional ones.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="empMain('A')">
+        A️⃣ Accept offer immediately
+      </button>
+
+      <button class="choice" onclick="empMain('B')">
+        B️⃣ Understand salary structure & terms
+      </button>
+
+      <button class="choice" onclick="empMain('C')">
+        C️⃣ Compare only monthly salary
+      </button>
+
+      <div id="emp-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Before accepting any job, check:</p>
+      <ul>
+        <li>💼 Role & responsibilities</li>
+        <li>💰 CTC vs in-hand salary</li>
+        <li>📄 Bond / notice period</li>
+      </ul>
+      <p class="hint">
+        Employment decisions shape long-term financial stability.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “A job offer is not just salary — it’s a long-term commitment.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Understand common employment-related situations.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>💰 Scenario 1: CTC vs In-Hand</h3>
+      <p>Your offer shows ₹6 LPA CTC, but in-hand is much lower.</p>
+
+      <p><strong>Your reaction?</strong></p>
+
+      <button class="choice" onclick="emp1('A', this)">A️⃣ Feel cheated</button>
+      <button class="choice" onclick="emp1('B', this)">B️⃣ Understand deductions</button>
+      <button class="choice" onclick="emp1('C', this)">C️⃣ Ignore details</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>📄 Scenario 2: Bond & Notice Period
