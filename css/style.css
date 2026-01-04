@@ -746,3 +746,72 @@ width: 100%;
     grid-template-columns: 1fr;
   }
 }
+/* =========================================
+   TOPICS CARD STRUCTURE — IMAGE 1 STYLE
+   (SAFE OVERRIDE — DO NOT REMOVE OLD CSS)
+========================================= */
+
+/* Topics grid layout */
+.card-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Card appearance */
+.topic-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+  border: none; /* overrides green top border */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.topic-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* Title */
+.topic-card h2 {
+  font-size: 1.4rem;
+  color: #1e40af;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.topic-card p {
+  font-size: 0.98rem;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Start link */
+.topic-card::after {
+  content: "Start →";
+  margin-top: 22px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
