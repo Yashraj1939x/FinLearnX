@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Scams & Frauds</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Scams & Frauds</h1>
+    <p class="subtitle">
+      Learn to identify, avoid, and respond to common financial scams.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You receive a call claiming to be from your bank,
+        asking for OTP to “secure your account”.
+      </p>
+      <p class="goal">
+        🎯 Goal: Protect your money and personal information.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="scamMain('A')">
+        A️⃣ Share OTP immediately
+      </button>
+
+      <button class="choice" onclick="scamMain('B')">
+        B️⃣ Disconnect call and contact bank directly
+      </button>
+
+      <button class="choice" onclick="scamMain('C')">
+        C️⃣ Ignore but do nothing else
+      </button>
+
+      <div id="scam-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Remember these golden rules:</p>
+      <ul>
+        <li>🔐 Never share OTP or PIN</li>
+        <li>📞 Banks never call for sensitive info</li>
+        <li>🔗 Avoid unknown links</li>
+      </ul>
+      <p class="hint">
+        Awareness is your strongest security.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Urgency is the scammer’s strongest weapon.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Identify scams before they harm you.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>📩 Scenario 1: Fake SMS Link</h3>
+      <p>You receive an SMS saying your account will be blocked.</p>
+
+      <p><strong>Your response?</strong></p>
+
+      <button class="choice" onclick="scam1('A', this)">A️⃣ Click the link</button>
+      <button class="choice" onclick="scam1('B', this)">B️⃣ Verify with bank app</button>
+      <button class="choice" onclick="scam1('C', this)">C️⃣ Forward to friends</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>💼 Scenario 2: Job Scam</h3>
+      <p>You are asked to pay a fee to get a job offer.</p>
+
+      <p><strong>Your action?</strong></p>
+
+      <button class="choice" onclick="scam2('A', this)">A️⃣ Pay quickly</button>
+      <button class="choice" onclick="scam2('B', this)">B️⃣ Reject and report</button>
+      <button class="choice" onclick="scam2('C', this)">C️⃣ Ignore warning signs</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>📈 Scenario 3: Investment Scam</h3>
+      <p>You are promised “guaranteed returns” in a short time.</p>
+
+      <p><strong>Your decision?</strong></p>
+
+      <button class="choice" onclick="scam3('A', this)">A️⃣ Invest immediately</button>
+      <button class="choice" onclick="scam3('B', this)">B️⃣ Question legitimacy</button>
+      <button class="choice" onclick="scam3('C', this)">C️⃣ Borrow money to invest</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>🎁 Scenario 4: Lottery / Prize Scam</h3>
+      <p>You win a prize you never entered.</p>
+
+      <p><strong>What will you do?</strong></p>
+
+      <button class="choice" onclick="scam4('A', this)">A️⃣ Pay processing fee</button>
+      <button class="choice" onclick="scam4('B', this)">B️⃣ Ignore and delete</button>
+      <button class="choice" onclick="scam4('C', this)">C️⃣ Share details</button>
+    </div>
+
+  </div>
+
+  <script src="scam-fraud-lbd.js"></script>
+</body>
+</html>
