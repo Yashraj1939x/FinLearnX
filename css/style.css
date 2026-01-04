@@ -747,55 +747,51 @@ width: 100%;
   }
 }
 /* =========================================
-   TOPICS CARD STRUCTURE — IMAGE 1 STYLE
-   (SAFE OVERRIDE — DO NOT REMOVE OLD CSS)
+   FORCE TOPICS CARD LAYOUT (IMAGE 1 STYLE)
 ========================================= */
 
-/* Topics grid layout */
-.card-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+.topics-section .card-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 32px !important;
 }
 
-/* Card appearance */
-.topic-card {
-  background: #ffffff;
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
-  border: none; /* overrides green top border */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.topics-section .topic-card {
+  background: #ffffff !important;
+  padding: 32px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.08) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-/* Hover effect */
-.topic-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.12);
+.topics-section .topic-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 22px 45px rgba(0,0,0,0.12) !important;
 }
 
-/* Title */
-.topic-card h2 {
-  font-size: 1.4rem;
-  color: #1e40af;
-  margin-bottom: 12px;
+.topics-section .topic-card h2 {
+  font-size: 1.4rem !important;
+  color: #1e40af !important;
+  margin-bottom: 12px !important;
 }
 
-/* Description */
-.topic-card p {
-  font-size: 0.98rem;
-  color: #555;
-  line-height: 1.6;
-  flex-grow: 1;
+.topics-section .topic-card p {
+  font-size: 0.98rem !important;
+  color: #555 !important;
+  line-height: 1.6 !important;
+  flex-grow: 1 !important;
 }
 
-/* Start link */
-.topic-card::after {
+/* Start → link */
+.topics-section .topic-card::after {
   content: "Start →";
   margin-top: 22px;
   font-weight: 700;
@@ -805,13 +801,13 @@ width: 100%;
 
 /* Responsive */
 @media (max-width: 900px) {
-  .card-container {
-    grid-template-columns: repeat(2, 1fr);
+  .topics-section .card-container {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 @media (max-width: 600px) {
-  .card-container {
-    grid-template-columns: 1fr;
+  .topics-section .card-container {
+    grid-template-columns: 1fr !important;
   }
 }
