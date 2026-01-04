@@ -17,7 +17,7 @@
 }
 
 /* =====================
-   GLOBAL STYLES
+   GLOBAL
 ===================== */
 
 * {
@@ -34,7 +34,7 @@ body {
 }
 
 /* =====================
-   PAGE TITLE
+   TITLE
 ===================== */
 
 .page-title {
@@ -42,13 +42,12 @@ body {
   font-size: 2.6rem;
   font-weight: 700;
   color: var(--green-main);
-  margin-bottom: 10px;
 }
 
 .page-title::after {
   content: "";
   display: block;
-  width: 110px;
+  width: 120px;
   height: 4px;
   background: linear-gradient(
     90deg,
@@ -69,7 +68,6 @@ body {
   justify-content: center;
   gap: 14px;
   margin-bottom: 40px;
-  flex-wrap: wrap;
 }
 
 .tab-btn {
@@ -77,27 +75,16 @@ body {
   border: none;
   background: #ffffff;
   color: var(--green-main);
-  cursor: pointer;
   border-radius: 999px;
-  font-size: 1rem;
   font-weight: 600;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: all 0.35s ease;
-}
-
-.tab-btn:hover {
-  transform: translateY(-2px);
-  background: var(--green-soft);
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.3s;
 }
 
 .tab-btn.active {
-  background: linear-gradient(
-    135deg,
-    var(--green-main),
-    var(--blue-main)
-  );
-  color: #ffffff;
-  box-shadow: 0 10px 30px rgba(30, 78, 216, 0.35);
+  background: linear-gradient(135deg, var(--green-main), var(--blue-main));
+  color: white;
 }
 
 /* =====================
@@ -108,147 +95,87 @@ body {
   display: none;
   max-width: 1100px;
   margin: auto;
-  background: #ffffff;
+  background: white;
   padding: 45px 40px;
   border-radius: 22px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
-  animation: fadeUp 0.5s ease;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
 }
 
 .tab-content.active {
   display: block;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* =====================
-   MODULES
+   BANKING (GREEN)
 ===================== */
 
-.module {
-  margin-bottom: 50px;
-}
-
-.module h2 {
-  font-size: 1.9rem;
-  color: var(--blue-main);
-  margin-bottom: 24px;
-  padding-left: 14px;
+#banking .module h2 {
+  color: var(--green-main);
   border-left: 6px solid var(--green-main);
+  padding-left: 14px;
 }
-
-.module.highlight {
-  background: linear-gradient(135deg, var(--amber-soft), #ffffff);
-  padding: 30px;
-  border-radius: 18px;
-  border-left: 6px solid var(--amber-main);
-}
-
-/* =====================
-   CARDS
-===================== */
 
 .card {
-  background: linear-gradient(180deg, #ffffff, #f9fcfa);
+  background: #f9fcfa;
   border-radius: 18px;
-  padding: 26px 28px;
+  padding: 26px;
   margin-bottom: 22px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-  transition: all 0.35s ease;
   border-top: 4px solid var(--green-main);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
 }
 
 .card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
   color: var(--green-main);
 }
 
-.card p {
-  margin: 0;
-  color: var(--text-muted);
-}
-
-.card li::marker {
-  color: var(--blue-main);
-}
-
 /* =====================
-   RBI SECTION (BLUE THEME)
+   RBI (BLUE)
 ===================== */
 
-.rbi-section h1 {
-  font-size: 2.2rem;
-  color: var(--blue-main);
-  margin-bottom: 20px;
+#rbi {
+  background: linear-gradient(180deg, var(--blue-soft), #ffffff);
 }
 
-.rbi-section .intro {
-  background: var(--blue-soft);
-  padding: 18px 22px;
-  border-left: 6px solid var(--blue-main);
+#rbi h2,
+#rbi h3 {
+  color: var(--blue-main);
+}
+
+#rbi ul li::marker {
+  color: var(--blue-main);
+}
+
+#rbi p {
+  background: white;
+  padding: 16px 18px;
+  border-left: 5px solid var(--blue-main);
   border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.rbi-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px 26px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
-  border-left: 4px solid var(--blue-main);
-}
-
-.rbi-card.warning {
-  border-left: 6px solid #dc2626;
-  background: #fff5f5;
+  margin-bottom: 18px;
 }
 
 /* =====================
-   DOCUMENTS SECTION (AMBER)
+   DOCUMENTS (AMBER)
 ===================== */
 
-.banking-docs h1 {
-  font-size: 2.1rem;
+#documents {
+  background: linear-gradient(180deg, var(--amber-soft), #ffffff);
+}
+
+#documents h2,
+#documents h3 {
   color: var(--amber-main);
-  margin-bottom: 10px;
 }
 
-.subtitle {
-  color: var(--text-muted);
-  margin-bottom: 30px;
-}
-
-.doc-section {
-  background: linear-gradient(180deg, #ffffff, var(--amber-soft));
-  border-radius: 18px;
-  padding: 26px 28px;
-  margin-bottom: 28px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+#documents ul {
+  background: white;
+  padding: 18px 22px;
   border-left: 5px solid var(--amber-main);
+  border-radius: 12px;
+  margin-bottom: 20px;
 }
 
-.doc-section h2 {
+#documents ul li::marker {
   color: var(--amber-main);
-}
-
-.doc-section h3 {
-  color: #92400e;
 }
 
 /* =====================
@@ -256,17 +183,7 @@ body {
 ===================== */
 
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2.1rem;
-  }
-
   .tab-content {
     padding: 30px 22px;
-  }
-
-  .card,
-  .doc-section,
-  .rbi-card {
-    padding: 22px;
   }
 }
