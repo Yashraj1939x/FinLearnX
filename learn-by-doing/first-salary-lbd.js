@@ -67,3 +67,56 @@ function salary4(o, b) {
       : "❌ <span class='wrong'>Instant upgrades create lifestyle inflation.</span>"
   );
 }
+function salary5(o, b) {
+  showSalaryFeedback(
+    b,
+    o === "B"
+      ? "✅ <span class='correct'>Checking budget prevents impulse regret.</span>"
+      : "❌ <span class='wrong'>Discounts still cost money.</span>"
+  );
+}
+
+function salary6(o, b) {
+  showSalaryFeedback(
+    b,
+    o === "B"
+      ? "✅ <span class='correct'>Early saving compounds over time.</span>"
+      : "⚠️ <span class='warn'>Postponing savings becomes a habit.</span>"
+  );
+}
+
+function salary7(o, b) {
+  showSalaryFeedback(
+    b,
+    o === "B"
+      ? "✅ <span class='correct'>Tracking creates awareness and control.</span>"
+      : "❌ <span class='wrong'>Ignoring spending hides money leaks.</span>"
+  );
+}
+
+function salary8(o, b) {
+  showSalaryFeedback(
+    b,
+    o === "B"
+      ? "✅ <span class='correct'>Thoughtful gifting maintains balance.</span>"
+      : "⚠️ <span class='warn'>Overspending for approval causes stress.</span>"
+  );
+}
+
+function salary9(o, b) {
+  showSalaryFeedback(
+    b,
+    o === "B"
+      ? "✅ <span class='correct'>Right account features support growth.</span>"
+      : "⚠️ <span class='warn'>Too many accounts reduce clarity.</span>"
+  );
+}
+
+function salary10(o, b) {
+  showSalaryFeedback(
+    b,
+    o === "B"
+      ? "✅ <span class='correct'>Preparation reduces panic.</span>"
+      : "❌ <span class='wrong'>Loans should not be first response.</span>"
+  );
+}
