@@ -1,3 +1,4 @@
+<!--
 const canvas = document.getElementById("hero-bg");
 const ctx = canvas.getContext("2d");
 
@@ -48,3 +49,4 @@ function draw() {
 }
 
 draw();
+-->
