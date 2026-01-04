@@ -750,64 +750,82 @@ width: 100%;
    FORCE TOPICS CARD LAYOUT (IMAGE 1 STYLE)
 ========================================= */
 
-.topics-section .card-container {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 32px !important;
+/* ===============================
+   TOPICS CARDS – IMAGE 1 STYLE
+   (CSS ONLY CHANGE)
+=============================== */
+
+/* Grid layout */
+.card-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
-.topics-section .topic-card {
-  background: #ffffff !important;
-  padding: 32px !important;
-  border-radius: 20px !important;
-  border: none !important;
-  box-shadow: 0 14px 32px rgba(0,0,0,0.08) !important;
+/* Card */
+.topic-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f3f6ff 100%);
+  padding: 32px;
+  border-radius: 22px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.topics-section .topic-card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 22px 45px rgba(0,0,0,0.12) !important;
+/* Hover */
+.topic-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 55px rgba(0, 0, 0, 0.14);
 }
 
-.topics-section .topic-card h2 {
-  font-size: 1.4rem !important;
-  color: #1e40af !important;
-  margin-bottom: 12px !important;
+/* Title */
+.topic-card h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.topics-section .topic-card p {
-  font-size: 0.98rem !important;
-  color: #555 !important;
-  line-height: 1.6 !important;
-  flex-grow: 1 !important;
+/* Description */
+.topic-card p {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
 }
 
-/* Start → link */
-.topics-section .topic-card::after {
-  content: "Start →";
-  margin-top: 22px;
+/* Start text */
+.topic-card .cta {
   font-weight: 700;
   font-size: 0.95rem;
   color: #2563eb;
 }
 
-/* Responsive */
+/* ===============================
+   RESPONSIVE
+=============================== */
 @media (max-width: 900px) {
-  .topics-section .card-container {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  .topics-section .card-container {
-    grid-template-columns: 1fr !important;
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
   }
 }
