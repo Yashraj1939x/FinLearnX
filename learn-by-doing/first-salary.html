@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – First Salary</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: First Salary</h1>
+    <p class="subtitle">
+      Learn how to manage your first salary wisely and avoid common mistakes.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You receive your <strong>first salary</strong>.
+        You feel excited and want to enjoy the moment.
+      </p>
+      <p class="goal">
+        🎯 Goal: Balance enjoyment, savings, and responsibility.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="salaryMain('A')">
+        A️⃣ Spend everything to celebrate
+      </button>
+
+      <button class="choice" onclick="salaryMain('B')">
+        B️⃣ Plan spending, saving, and needs
+      </button>
+
+      <button class="choice" onclick="salaryMain('C')">
+        C️⃣ Ignore planning for now
+      </button>
+
+      <div id="salary-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Before using your first salary, decide:</p>
+      <ul>
+        <li>💰 How much to save</li>
+        <li>🎁 How much to spend</li>
+        <li>🏠 Any family contribution</li>
+      </ul>
+      <p class="hint">
+        First salary habits often shape long-term money behavior.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Your first salary should build habits, not regrets.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Make smart decisions with your first income.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>🎉 Scenario 1: Celebration Spending</h3>
+      <p>You want to celebrate with friends.</p>
+
+      <p><strong>Your approach?</strong></p>
+
+      <button class="choice" onclick="salary1('A', this)">A️⃣ Spend without limit</button>
+      <button class="choice" onclick="salary1('B', this)">B️⃣ Celebrate within budget</button>
+      <button class="choice" onclick="salary1('C', this)">C️⃣ Take loan to celebrate</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>💰 Scenario 2: Saving Decision</h3>
+      <p>You are unsure whether to save this month.</p>
+
+      <p><strong>Best choice?</strong></p>
+
+      <button class="choice" onclick="salary2('A', this)">A️⃣ Save later</button>
+      <button class="choice" onclick="salary2('B', this)">B️⃣ Save from first salary</button>
+      <button class="choice" onclick="salary2('C', this)">C️⃣ Save only if money is left</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>🏠 Scenario 3: Family Contribution</h3>
+      <p>Your family supported your education.</p>
+
+      <p><strong>Your thought?</strong></p>
+
+      <button class="choice" onclick="salary3('A', this)">A️⃣ Ignore responsibility</button>
+      <button class="choice" onclick="salary3('B', this)">B️⃣ Contribute willingly</button>
+      <button class="choice" onclick="salary3('C', this)">C️⃣ Feel forced</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>📱 Scenario 4: Lifestyle Upgrade</h3>
+      <p>You want to upgrade phone and lifestyle.</p>
+
+      <p><strong>What is smart?</strong></p>
+
+      <button class="choice" onclick="salary4('A', this)">A️⃣ Upgrade immediately</button>
+      <button class="choice" onclick="salary4('B', this)">B️⃣ Delay and plan</button>
+      <button class="choice" onclick="salary4('C', this)">C️⃣ Use credit blindly</button>
+    </div>
+
+  </div>
+
+  <script src="first-salary-lbd.js"></script>
+</body>
+</html>
