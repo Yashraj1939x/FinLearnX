@@ -852,3 +852,8 @@ width: 100%;
   text-align: center;
   color: #ffffff;
 }
+background-color: #c48dda;
+opacity: 0.2;
+background-image:  linear-gradient(30deg, #fff7fc 12%, transparent 12.5%, transparent 87%, #fff7fc 87.5%, #fff7fc), linear-gradient(150deg, #fff7fc 12%, transparent 12.5%, transparent 87%, #fff7fc 87.5%, #fff7fc), linear-gradient(30deg, #fff7fc 12%, transparent 12.5%, transparent 87%, #fff7fc 87.5%, #fff7fc), linear-gradient(150deg, #fff7fc 12%, transparent 12.5%, transparent 87%, #fff7fc 87.5%, #fff7fc), linear-gradient(60deg, #fff7fc77 25%, transparent 25.5%, transparent 75%, #fff7fc77 75%, #fff7fc77), linear-gradient(60deg, #fff7fc77 25%, transparent 25.5%, transparent 75%, #fff7fc77 75%, #fff7fc77);
+background-size: 18px 32px;
+background-position: 0 0, 0 0, 9px 16px, 9px 16px, 0 0, 9px 16px;
