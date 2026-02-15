@@ -5,7 +5,6 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, #eef6f1, #f4f8ff);
