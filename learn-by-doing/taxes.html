@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Taxes</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Taxes</h1>
+    <p class="subtitle">
+      Understand how income tax works and avoid common mistakes.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You start earning money from internship, freelancing, or a job.
+        You are unsure whether you need to pay tax.
+      </p>
+      <p class="goal">
+        🎯 Goal: Understand tax responsibility without fear or confusion.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="taxMain('A')">
+        A️⃣ Ignore taxes because income is small
+      </button>
+
+      <button class="choice" onclick="taxMain('B')">
+        B️⃣ Learn basics and check tax liability
+      </button>
+
+      <button class="choice" onclick="taxMain('C')">
+        C️⃣ Wait for notice from government
+      </button>
+
+      <div id="tax-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Note these tax basics:</p>
+      <ul>
+        <li>🧾 Your annual income</li>
+        <li>📄 Income source (salary / freelance)</li>
+        <li>📆 Financial year</li>
+      </ul>
+      <p class="hint">
+        Tax clarity starts with income clarity.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Taxes are not punishment — they are part of income responsibility.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Learn tax decisions through real situations.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>💰 Scenario 1: Income Below Tax Limit</h3>
+      <p>Your annual income is below the basic exemption limit.</p>
+
+      <p><strong>Your action?</strong></p>
+
+      <button class="choice" onclick="tax1('A', this)">A️⃣ Do nothing</button>
+      <button class="choice" onclick="tax1('B', this)">B️⃣ Still learn filing basics</button>
+      <button class="choice" onclick="tax1('C', this)">C️⃣ Hide income</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>📑 Scenario 2: Freelancing Income</h3>
+      <p>You earn from freelancing without salary slips.</p>
+
+      <p><strong>Best approach?</strong></p>
+
+      <button class="choice" onclick="tax2('A', this)">A️⃣ Ignore tax completely</button>
+      <button class="choice" onclick="tax2('B', this)">B️⃣ Track income and expenses</button>
+      <button class="choice" onclick="tax2('C', this)">C️⃣ Depend on cash only</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>⏰ Scenario 3: Filing Deadline</h3>
+      <p>You miss the tax filing deadline.</p>
+
+      <p><strong>What happens?</strong></p>
+
+      <button class="choice" onclick="tax3('A', this)">A️⃣ Nothing serious</button>
+      <button class="choice" onclick="tax3('B', this)">B️⃣ Penalty & stress</button>
+      <button class="choice" onclick="tax3('C', this)">C️⃣ Free extension always</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>💸 Scenario 4: Tax Saving Options</h3>
+      <p>You hear about tax-saving investments.</p>
+
+      <p><strong>What is smart?</strong></p>
+
+      <button class="choice" onclick="tax4('A', this)">A️⃣ Invest blindly</button>
+      <button class="choice" onclick="tax4('B', this)">B️⃣ Match investment with goals</button>
+      <button class="choice" onclick="tax4('C', this)">C️⃣ Avoid taxes illegally</button>
+    </div>
+
+  </div>
+
+  <script src="taxes-lbd.js"></script>
+</body>
+</html>

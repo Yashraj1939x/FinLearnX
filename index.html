@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FinLearnX</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+
+
+<!-- =====================
+     HERO / INTRO
+====================== -->
+<body>
+<div id="background-container" class="background-container">
+  <div id="background-1" class="background-1"></div>
+  <div id="background-2" class="background-2"></div>
+</div>
+
+<section class="hero">
+
+  <spline-viewer
+    class="spline-bg"
+    url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
+    events-target="global">
+  </spline-viewer>
+
+  <div class="hero-content">
+    <h1 class="hero-title">FinLearnX</h1>
+    <p class="hero-subtitle">
+      Learn financial concepts. Apply them using real-world simulations.
+    </p>
+    <span class="scroll-hint">↓ Scroll to explore</span>
+  </div>
+
+</section>
+
+<!-- REST OF YOUR SITE (UNCHANGED) -->
+<section class="content">
+  <!-- Financial Literacy Topics -->
+  <!-- Simulations -->
+  <!-- Quizzes -->
+</section>
+
+<script src="./js/hero-bg.js"></script>
+<script src="./js/main.js"></script>
+
+</body>
+
+
+
+<!-- =====================
+     TOPICS SECTION
+====================== -->
+<section class="topics-section">
+  <h2 class="section-title">📚 Financial Literacy Topics</h2>
+
+  <div class="card-container">
+
+    <div class="topic-card" onclick="goTo('pages/budget.html')">
+      <h3>💰 Budgeting</h3>
+      <p>Plan income, manage expenses, and build saving habits.</p>
+    </div>
+
+    <div class="topic-card" onclick="goTo('pages/credit.html')">
+      <h3>💳 Credit Score</h3>
+      <p>Understand creditworthiness and its impact on loans.</p>
+    </div>
+
+    <div class="topic-card" onclick="goTo('pages/investment.html')">
+      <h3>📈 Investment</h3>
+      <p>Grow money over time with smart investment strategies.</p>
+    </div>
+ <div class="topic-card" onclick="goTo('pages/banking.html')">
+    <h2>🏦 Banking</h2>
+    <p>Types of banks, accounts, and digital banking.</p>
+  </div>
+
+  <div class="topic-card" onclick="goTo('pages/loans.html')">
+    <h2>💸 Loans & Debt</h2>
+    <p>Understand loans, EMIs, and debt management.</p>
+  </div>
+
+  <div class="topic-card" onclick="goTo('pages/insurance.html')">
+    <h2>🛡 Insurance</h2>
+    <p>Protect yourself from financial risks.</p>
+  </div>
+
+  <!-- NEW ROW -->
+  <div class="topic-card" onclick="goTo('pages/employment.html')">
+    <h2>💼 Employment</h2>
+    <p>Income sources, jobs, and employment types.</p>
+  </div>
+
+  <div class="topic-card" onclick="goTo('pages/taxes.html')">
+    <h2>🧾 Taxes</h2>
+    <p>Income tax, GST, and tax planning basics.</p>
+  </div>
+
+  <div class="topic-card" onclick="goTo('pages/housing.html')">
+    <h2>🏠 Housing</h2>
+    <p>Renting vs buying a house.</p>
+  </div>
+
+  <!-- LAST ROW -->
+  <div class="topic-card" onclick="goTo('pages/scams.html')">
+    <h2>🚨 Scams & Frauds</h2>
+    <p>Identify frauds and protect your money.</p>
+  </div>
+
+</div>
+  </div>
+</section>
+<!-- Learn by Doing Section -->
+<section class="learn-by-doing-section">
+
+  <h2 class="section-title">Learn by Doing</h2>
+  <p class="section-subtitle">
+    Real-life money decisions. Practical learning. Instant feedback.
+  </p>
+
+  <div class="lbd-cards">
+
+    <div class="lbd-card" onclick="location.href='learn-by-doing/budget.html'">
+      <h3>💰 Budgeting</h3>
+      <p>
+        Manage your income, control expenses, and build saving discipline
+        through real-life scenarios.
+      </p>
+      <span class="cta">Start  →</span>
+    </div>
+
+    <!-- Credit Score -->
+    <div class="lbd-card" onclick="location.href='learn-by-doing/credit-score.html'">
+      <h3>📊 Credit Score</h3>
+      <p>
+        Understand how your spending, payments, and credit usage
+        affect your credit score.
+      </p>
+      <span class="cta">Start →</span>
+    </div>
+    <div class="lbd-card" onclick="location.href='learn-by-doing/investment.html'">
+  <h3>📈 Investment</h3>
+  <p>
+    Learn how to invest, manage risk, and grow wealth step by step.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+<div class="lbd-card" onclick="location.href='learn-by-doing/banking.html'">
+  <h3>🏦 Banking</h3>
+  <p>
+    Learn how bank accounts, debit cards, UPI, and net banking work safely.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+<div class="lbd-card" onclick="location.href='learn-by-doing/loan-debt.html'">
+  <h3>📉 Loan & Debt</h3>
+  <p>
+    Learn the difference between good debt, bad debt, and how to escape debt traps.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+<div class="lbd-card" onclick="location.href='learn-by-doing/insurance.html'">
+  <h3>🛡️ Insurance</h3>
+  <p>
+    Learn how health, life, and asset insurance protect you from financial shocks.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+<div class="lbd-card" onclick="location.href='learn-by-doing/scam-fraud.html'">
+  <h3>🚨 Scams & Frauds</h3>
+  <p>
+    Learn to identify and avoid online, banking, job, and investment scams.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+    <div class="lbd-card" onclick="location.href='learn-by-doing/employment.html'">
+  <h3>💼 Employment</h3>
+  <p>
+    Learn how job offers, salary structure, and employment choices impact your finances.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+<div class="lbd-card" onclick="location.href='learn-by-doing/taxes.html'">
+  <h3>🧾 Taxes</h3>
+  <p>
+    Learn income tax basics, filing awareness, and smart tax habits.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+<div class="lbd-card" onclick="location.href='learn-by-doing/education-loan.html'">
+  <h3>🎓 Education Loan</h3>
+  <p>
+    Learn how education loans work, repayment planning, and ROI awareness.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+<div class="lbd-card" onclick="location.href='learn-by-doing/rent-vs-buy.html'">
+  <h3>🏠 Rent vs Buy</h3>
+  <p>
+    Learn when renting is smarter and when buying a home makes sense.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+<div class="lbd-card" onclick="location.href='learn-by-doing/first-salary.html'">
+  <h3>💸 First Salary</h3>
+  <p>
+    Learn how to spend, save, and plan your first salary wisely.
+  </p>
+  <span class="cta">Start →</span>
+</div>
+
+  </div>
+
+</section>
+<!-- =====================
+     SIMULATIONS SECTION
+====================== -->
+<div class="simulation-list">
+
+  <div class="simulation-row blue">
+    <div class="simulation-info">
+      <h4>Loan EMI Calculator</h4>
+      <p>Calculate monthly EMI, interest, and total loan cost.</p>
+    </div>
+    <button onclick="goTo('simulations/loanSimulator.html')">Open →</button>
+  </div>
+
+  <div class="simulation-row green">
+    <div class="simulation-info">
+      <h4>Budget Planner</h4>
+      <p>Analyze expenses, savings, and spending behavior.</p>
+    </div>
+    <button onclick="goTo('simulations/budgetSimulation.html')">Open →</button>
+  </div>
+
+  <div class="simulation-row purple">
+    <div class="simulation-info">
+      <h4>SIP Calculator</h4>
+      <p>Estimate long-term wealth through monthly investments.</p>
+    </div>
+    <button onclick="goTo('simulations/sipSimulation.html')">Open →</button>
+  </div>
+
+</div>
+
+<section class="platform-section">
+  <h2 class="platform-title">🏦 Banking Awareness</h2>
+  <p class="platform-subtitle">
+    Understand how the banking system works in real life —
+    from accounts and deposits to digital payments and security.
+  </p>
+
+  <div class="platform-card" onclick="location.href='banking/banking.html'">
+    <h3>Explore Banking System</h3>
+    <p>
+      Learn core banking concepts, types of banks,
+      digital banking, loans, interest, RBI, and safe banking practices.
+    </p>
+    <span class="cta">Start Learning →</span>
+  </div>
+</section>
+  </div>
+
+  <section class="platform-section">
+  <h2 class="platform-title">💳 Online Payment System</h2>
+  <p class="platform-subtitle">
+    Learn how digital payments work behind the scenes —
+    from UPI to cards and security layers.
+  </p>
+
+  <div class="platform-card"
+       onclick="location.href='online-payments/online-payments.html'">
+    <h3>How Online Payments Work</h3>
+    <p>
+      Step-by-step explanation of UPI, cards,
+      payment gateways, and security.
+    </p>
+    <span class="cta">Explore →</span>
+  </div>
+
+</section>
+
+<!-- =====================
+     CURRENCY CONVERTER SECTION
+====================== -->
+<section class="currency-converter-section">
+  <h2 class="platform-title">💱 Currency Converter</h2>
+  <p class="platform-subtitle">
+    Convert between 6 major global currencies with real-time exchange rates.
+  </p>
+
+  <div class="currency-converter-container">
+    <div class="converter-card">
+      <div class="converter-input-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" placeholder="Enter amount" value="100" min="0" step="0.01">
+      </div>
+
+      <div class="currency-row">
+        <div class="converter-input-group">
+          <label for="from-currency">From</label>
+          <select id="from-currency">
+            <option value="USD" data-symbol="$">🇺🇸 USD - US Dollar</option>
+            <option value="EUR" data-symbol="€">🇪🇺 EUR - Euro</option>
+            <option value="GBP" data-symbol="£">🇬🇧 GBP - British Pound</option>
+            <option value="JPY" data-symbol="¥">🇯🇵 JPY - Japanese Yen</option>
+            <option value="INR" data-symbol="₹">🇮🇳 INR - Indian Rupee</option>
+            <option value="AUD" data-symbol="A$">🇦🇺 AUD - Australian Dollar</option>
+          </select>
+        </div>
+
+        <div class="swap-button" onclick="swapCurrencies()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+          </svg>
+        </div>
+
+        <div class="converter-input-group">
+          <label for="to-currency">To</label>
+          <select id="to-currency">
+            <option value="USD" data-symbol="$">🇺🇸 USD - US Dollar</option>
+            <option value="EUR" data-symbol="€">🇪🇺 EUR - Euro</option>
+            <option value="GBP" data-symbol="£">🇬🇧 GBP - British Pound</option>
+            <option value="JPY" data-symbol="¥">🇯🇵 JPY - Japanese Yen</option>
+            <option value="INR" data-symbol="₹" selected>🇮🇳 INR - Indian Rupee</option>
+            <option value="AUD" data-symbol="A$">🇦🇺 AUD - Australian Dollar</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="convert-button" onclick="convertCurrency()">
+        Convert Currency
+      </button>
+
+      <div class="result-container" id="result-container">
+        <div class="result-amount" id="result-amount">
+          8,250.00 ₹
+        </div>
+        <div class="result-info" id="result-info">
+          100.00 USD = 8,250.00 INR
+        </div>
+        <div class="exchange-rate" id="exchange-rate">
+          Exchange Rate: 1 USD = 82.50 INR
+        </div>
+      </div>
+    </div>
+
+    <div class="exchange-info">
+      <h4>💡 Quick Currency Facts</h4>
+      <ul>
+        <li><strong>USD (US Dollar):</strong> World's primary reserve currency</li>
+        <li><strong>EUR (Euro):</strong> Used by 20 European Union countries</li>
+        <li><strong>GBP (British Pound):</strong> Oldest currency still in use</li>
+        <li><strong>JPY (Japanese Yen):</strong> Most traded Asian currency</li>
+        <li><strong>INR (Indian Rupee):</strong> Emerging market currency</li>
+        <li><strong>AUD (Australian Dollar):</strong> Commodity-linked currency</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =====================
+     STOCK MARKET SIMULATOR
+====================== -->
+<section class="stock-simulator-section">
+  <h2 class="platform-title">📈 Stock Market Simulator</h2>
+  <p class="platform-subtitle">
+    Practice investing in virtual stocks without risking real money. Learn market dynamics and trading strategies.
+  </p>
+
+  <div class="stock-simulator-container">
+    <div class="portfolio-card">
+      <h3>Your Portfolio</h3>
+      <div class="portfolio-stats">
+        <div class="stat-item">
+          <span class="stat-label">Available Cash</span>
+          <span class="stat-value" id="available-cash">$10,000.00</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Portfolio Value</span>
+          <span class="stat-value" id="portfolio-value">$10,000.00</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Total Profit/Loss</span>
+          <span class="stat-value profit" id="total-pl">$0.00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="trading-card">
+      <h3>Trade Stocks</h3>
+      <div class="stock-selector">
+        <select id="stock-select">
+          <option value="AAPL">🍎 Apple (AAPL)</option>
+          <option value="GOOGL">🔍 Google (GOOGL)</option>
+          <option value="MSFT">🪟 Microsoft (MSFT)</option>
+          <option value="AMZN">📦 Amazon (AMZN)</option>
+          <option value="TSLA">🚗 Tesla (TSLA)</option>
+          <option value="META">📘 Meta (META)</option>
+        </select>
+        <div class="stock-price" id="stock-price">$150.25</div>
+      </div>
+
+      <div class="trade-controls">
+        <div class="trade-type-selector">
+          <button class="trade-type-btn buy-btn active" onclick="setTradeType('buy')">Buy</button>
+          <button class="trade-type-btn sell-btn" onclick="setTradeType('sell')">Sell</button>
+        </div>
+        <div class="quantity-input">
+          <label>Quantity</label>
+          <input type="number" id="quantity" value="10" min="1" max="100">
+        </div>
+        <div class="total-cost">
+          <label>Total Cost</label>
+          <span id="total-cost">$1,502.50</span>
+        </div>
+        <button class="execute-trade-btn" onclick="executeTrade()">Execute Trade</button>
+      </div>
+    </div>
+
+    <div class="holdings-card">
+      <h3>Your Holdings</h3>
+      <div class="holdings-list" id="holdings-list">
+        <div class="empty-holdings">No stocks purchased yet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================
+     RETIREMENT PLANNING CALCULATOR
+====================== -->
+<section class="retirement-calculator-section">
+  <h2 class="platform-title">🏖️ Retirement Planning Calculator</h2>
+  <p class="platform-subtitle">
+    Plan your retirement goals and calculate how much you need to save for a comfortable future.
+  </p>
+
+  <div class="retirement-container">
+    <div class="calculator-card">
+      <h3>Retirement Information</h3>
+      <div class="input-grid">
+        <div class="input-group">
+          <label for="current-age">Current Age</label>
+          <input type="number" id="current-age" value="25" min="18" max="100">
+        </div>
+        
+        <div class="input-group">
+          <label for="retirement-age">Retirement Age</label>
+          <input type="number" id="retirement-age" value="60" min="50" max="100">
+        </div>
+        
+        <div class="input-group">
+          <label for="monthly-income">Current Monthly Income ($)</label>
+          <input type="number" id="monthly-income" value="5000" min="500" max="100000">
+        </div>
+        
+        <div class="input-group">
+          <label for="desired-monthly">Desired Monthly Retirement Income ($)</label>
+          <input type="number" id="desired-monthly" value="4000" min="1000" max="50000">
+        </div>
+        
+        <div class="input-group">
+          <label for="current-savings">Current Savings ($)</label>
+          <input type="number" id="current-savings" value="10000" min="0" max="10000000">
+        </div>
+        
+        <div class="input-group">
+          <label for="expected-return">Expected Annual Return (%)</label>
+          <input type="number" id="expected-return" value="7" min="1" max="20" step="0.1">
+        </div>
+      </div>
+      
+      <button class="calculate-btn" onclick="calculateRetirement()">Calculate Retirement Plan</button>
+    </div>
+
+    <div class="results-card">
+      <h3>Your Retirement Analysis</h3>
+      <div class="retirement-results" id="retirement-results">
+        <div class="result-item">
+          <span class="result-label">Years Until Retirement</span>
+          <span class="result-value" id="years-until">35 years</span>
+        </div>
+        
+        <div class="result-item">
+          <span class="result-label">Total Retirement Fund Needed</span>
+          <span class="result-value highlight" id="total-needed">$1,200,000</span>
+        </div>
+        
+        <div class="result-item">
+          <span class="result-label">Monthly Savings Required</span>
+          <span class="result-value important" id="monthly-savings">$1,250</span>
+        </div>
+        
+        <div class="result-item">
+          <span class="result-label">Projected Fund at Retirement</span>
+          <span class="result-value" id="projected-fund">$1,525,000</span>
+        </div>
+        
+        <div class="result-item">
+          <span class="result-label">Annual Retirement Income</span>
+          <span class="result-value" id="annual-income">$48,000</span>
+        </div>
+      </div>
+      
+      <div class="retirement-tips">
+        <h4>💡 Retirement Planning Tips</h4>
+        <ul>
+          <li>Start saving early - compound interest is your best friend</li>
+          <li>Take advantage of employer 401(k) matching programs</li>
+          <li>Consider increasing savings rate with income increases</li>
+          <li>Diversify investments to manage risk</li>
+          <li>Review and adjust your plan annually</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================
+     EXPENSE TRACKER
+====================== -->
+<section class="expense-tracker-section">
+  <h2 class="platform-title">📊 Expense Tracker</h2>
+  <p class="platform-subtitle">
+    Track your daily expenses, categorize spending, and visualize where your money goes.
+  </p>
+
+  <div class="expense-tracker-container">
+    <div class="add-expense-card">
+      <h3>Add New Expense</h3>
+      <div class="expense-form">
+        <div class="form-group">
+          <label for="expense-description">Description</label>
+          <input type="text" id="expense-description" placeholder="e.g., Coffee at Starbucks">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expense-amount">Amount ($)</label>
+            <input type="number" id="expense-amount" placeholder="0.00" step="0.01" min="0">
+          </div>
+          
+          <div class="form-group">
+            <label for="expense-category">Category</label>
+            <select id="expense-category">
+              <option value="food">🍔 Food & Dining</option>
+              <option value="transport">🚗 Transportation</option>
+              <option value="shopping">🛍️ Shopping</option>
+              <option value="entertainment">🎬 Entertainment</option>
+              <option value="bills">📄 Bills & Utilities</option>
+              <option value="healthcare">🏥 Healthcare</option>
+              <option value="education">📚 Education</option>
+              <option value="other">📦 Other</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="expense-date">Date</label>
+          <input type="date" id="expense-date">
+        </div>
+        
+        <button class="add-expense-btn" onclick="addExpense()">Add Expense</button>
+      </div>
+    </div>
+
+    <div class="expense-summary-card">
+      <h3>Monthly Summary</h3>
+      <div class="summary-stats">
+        <div class="summary-item">
+          <span class="summary-label">Total Expenses</span>
+          <span class="summary-value" id="total-expenses">$0.00</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Average Daily</span>
+          <span class="summary-value" id="daily-average">$0.00</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Highest Category</span>
+          <span class="summary-value" id="highest-category">-</span>
+        </div>
+      </div>
+      
+      <div class="category-breakdown">
+        <h4>Category Breakdown</h4>
+        <div id="category-chart">
+          <div class="chart-placeholder">Add expenses to see breakdown</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="expense-list-card">
+      <h3>Recent Expenses</h3>
+      <div class="expense-filters">
+        <button class="filter-btn active" onclick="filterExpenses('all')">All</button>
+        <button class="filter-btn" onclick="filterExpenses('today')">Today</button>
+        <button class="filter-btn" onclick="filterExpenses('week')">This Week</button>
+        <button class="filter-btn" onclick="filterExpenses('month')">This Month</button>
+      </div>
+      
+      <div class="expense-list" id="expense-list">
+        <div class="no-expenses">No expenses recorded yet</div>
+      </div>
+      
+      <button class="clear-btn" onclick="clearAllExpenses()">Clear All Expenses</button>
+    </div>
+  </div>
+</section>
+
+<!-- =====================
+     FINANCIAL HEALTH ASSESSMENT
+====================== -->
+<section class="financial-health-section">
+  <h2 class="platform-title">🏥 Financial Health Assessment</h2>
+  <p class="platform-subtitle">
+    Evaluate your financial well-being with our comprehensive health check and get personalized recommendations.
+  </p>
+
+  <div class="health-assessment-container">
+    <div class="assessment-card">
+      <h3>Financial Questionnaire</h3>
+      <div class="questionnaire-container" id="questionnaire-container">
+        <div class="question active" data-question="1">
+          <h4>1. Do you have an emergency fund?</h4>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q1" value="3">
+              <span>Yes, 6+ months of expenses</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="2">
+              <span>Yes, 3-6 months of expenses</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="1">
+              <span>Yes, less than 3 months</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q1" value="0">
+              <span>No emergency fund</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="question" data-question="2">
+          <h4>2. How much of your income do you save monthly?</h4>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q2" value="3">
+              <span>20% or more</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="2">
+              <span>10-19%</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="1">
+              <span>5-9%</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q2" value="0">
+              <span>Less than 5%</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="question" data-question="3">
+          <h4>3. Do you track your expenses regularly?</h4>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q3" value="3">
+              <span>Daily, with detailed tracking</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="2">
+              <span>Weekly or monthly</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="1">
+              <span>Occasionally</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q3" value="0">
+              <span>Never</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="question" data-question="4">
+          <h4>4. What's your debt-to-income ratio?</h4>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q4" value="3">
+              <span>Less than 20%</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="2">
+              <span>20-35%</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="1">
+              <span>36-50%</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q4" value="0">
+              <span>More than 50%</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="question" data-question="5">
+          <h4>5. Are you investing for retirement?</h4>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="q5" value="3">
+              <span>Yes, consistently and diversified</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q5" value="2">
+              <span>Yes, but irregularly</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q5" value="1">
+              <span>Just started</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="q5" value="0">
+              <span>No, not yet</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="assessment-controls">
+        <button class="prev-btn" onclick="previousQuestion()" id="prev-btn" disabled>Previous</button>
+        <div class="progress-dots">
+          <span class="dot active" data-question="1"></span>
+          <span class="dot" data-question="2"></span>
+          <span class="dot" data-question="3"></span>
+          <span class="dot" data-question="4"></span>
+          <span class="dot" data-question="5"></span>
+        </div>
+        <button class="next-btn" onclick="nextQuestion()" id="next-btn">Next</button>
+        <button class="submit-btn" onclick="calculateHealthScore()" id="submit-btn" style="display: none;">Get Assessment</button>
+      </div>
+    </div>
+
+    <div class="results-card">
+      <h3>Your Financial Health Report</h3>
+      <div class="health-score-display" id="health-score-display">
+        <div class="score-circle">
+          <div class="score-value" id="score-value">-</div>
+          <div class="score-label">Score</div>
+        </div>
+        <div class="health-status" id="health-status">Complete the assessment</div>
+      </div>
+
+      <div class="health-breakdown" id="health-breakdown" style="display: none;">
+        <h4>Health Breakdown</h4>
+        <div class="breakdown-item">
+          <span class="breakdown-label">Emergency Preparedness</span>
+          <div class="breakdown-bar">
+            <div class="breakdown-fill" id="emergency-fill"></div>
+          </div>
+        </div>
+        <div class="breakdown-item">
+          <span class="breakdown-label">Saving Habits</span>
+          <div class="breakdown-bar">
+            <div class="breakdown-fill" id="saving-fill"></div>
+          </div>
+        </div>
+        <div class="breakdown-item">
+          <span class="breakdown-label">Expense Management</span>
+          <div class="breakdown-bar">
+            <div class="breakdown-fill" id="expense-fill"></div>
+          </div>
+        </div>
+        <div class="breakdown-item">
+          <span class="breakdown-label">Debt Management</span>
+          <div class="breakdown-bar">
+            <div class="breakdown-fill" id="debt-fill"></div>
+          </div>
+        </div>
+        <div class="breakdown-item">
+          <span class="breakdown-label">Investment Planning</span>
+          <div class="breakdown-bar">
+            <div class="breakdown-fill" id="investment-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recommendations" id="recommendations" style="display: none;">
+        <h4>Personalized Recommendations</h4>
+        <div id="recommendations-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quiz-section">
+  <h2 class="section-title">🧠 Financial Quizzes</h2>
+  <p class="section-subtitle">
+    Test your financial habits, decisions, and investment knowledge.
+  </p>
+
+  <!-- Money Personality Quiz -->
+  <div class="quiz-card">
+    <div class="quiz-info">
+      <h3>Money Personality Quiz</h3>
+      <p>
+        Discover whether you are a spender, saver, balancer, or investor.
+      </p>
+    </div>
+
+    <button onclick="goTo('quizzes/moneyQuiz.html')">
+      Start Quiz →
+    </button>
+  </div>
+
+  <!-- Financial Decision-Making Quiz -->
+  <div class="quiz-card">
+    <div class="quiz-info">
+      <h3>Financial Decision-Making Quiz</h3>
+      <p>
+        Test how smart your real-life financial decisions are.
+      </p>
+    </div>
+
+    <button onclick="goTo('quizzes/decision-quiz.html')">
+      Start Quiz →
+    </button>
+  </div>
+
+  <!-- Investment Knowledge Quiz -->
+  <div class="quiz-card">
+    <div class="quiz-info">
+      <h3>Investment Basics Quiz</h3>
+      <p>
+        Check your understanding of SIPs, mutual funds, risk, and returns.
+      </p>
+    </div>
+
+    <button onclick="goTo('quizzes/investment-quiz.html')">
+      Start Quiz →
+    </button>
+  </div>
+
+</section>
+
+</section>
+
+
+
+<!-- =====================
+     FOOTER
+====================== -->
+<footer class="footer">
+  <p>© 2025 FinLearnX • Built for financial awareness</p>
+</footer>
+
+<script src="./js/main.js"></script>
+  <script src="./js/main.js"></script>
+<script src="./js/currency-converter.js"></script>
+<script src="./js/stock-simulator.js"></script>
+<script src="./js/retirement-calculator.js"></script>
+<script src="./js/expense-tracker.js"></script>
+<script src="./js/financial-health.js"></script>
+  <!-- Libraries FIRST -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.min.js"></script>
+
+<!-- ✅ Your CUSTOM JS file -->
+<script src="./js/hero-bg.js"></script>
+<script src="./js/main.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Rent vs Buy</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Rent vs Buy</h1>
+    <p class="subtitle">
+      Learn when renting makes sense and when buying is a better choice.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You are starting your career and need a place to live.
+        You are confused between <strong>renting</strong> or <strong>buying</strong> a house.
+      </p>
+      <p class="goal">
+        🎯 Goal: Choose the option that fits your financial stage.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="rvbMain('A')">
+        A️⃣ Buy immediately to avoid rent waste
+      </button>
+
+      <button class="choice" onclick="rvbMain('B')">
+        B️⃣ Rent while building financial stability
+      </button>
+
+      <button class="choice" onclick="rvbMain('C')">
+        C️⃣ Decide emotionally based on others
+      </button>
+
+      <div id="rvb-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Before deciding, compare:</p>
+      <ul>
+        <li>🏠 Rent vs EMI amount</li>
+        <li>💰 Down payment ability</li>
+        <li>📍 Job stability & location</li>
+      </ul>
+      <p class="hint">
+        Housing decisions depend on life stage, not pressure.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Renting is flexibility. Buying is commitment.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Understand real-life rent vs buy decisions.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>💰 Scenario 1: EMI vs Rent</h3>
+      <p>Your rent is ₹12,000. Home EMI would be ₹30,000.</p>
+
+      <p><strong>Your decision?</strong></p>
+
+      <button class="choice" onclick="rvb1('A', this)">A️⃣ Take EMI</button>
+      <button class="choice" onclick="rvb1('B', this)">B️⃣ Continue renting</button>
+      <button class="choice" onclick="rvb1('C', this)">C️⃣ Borrow extra money</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>📍 Scenario 2: Job Mobility</h3>
+      <p>Your job may require relocation.</p>
+
+      <p><strong>Best option?</strong></p>
+
+      <button class="choice" onclick="rvb2('A', this)">A️⃣ Buy property</button>
+      <button class="choice" onclick="rvb2('B', this)">B️⃣ Rent for flexibility</button>
+      <button class="choice" onclick="rvb2('C', this)">C️⃣ Ignore future moves</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>🏦 Scenario 3: Down Payment</h3>
+      <p>You don’t have enough down payment saved.</p>
+
+      <p><strong>What should you do?</strong></p>
+
+      <button class="choice" onclick="rvb3('A', this)">A️⃣ Take full loan</button>
+      <button class="choice" onclick="rvb3('B', this)">B️⃣ Rent and save first</button>
+      <button class="choice" onclick="rvb3('C', this)">C️⃣ Borrow from friends</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>⏳ Scenario 4: Long-Term Plan</h3>
+      <p>You plan to settle in the same city for 10+ years.</p>
+
+      <p><strong>Smart thinking?</strong></p>
+
+      <button class="choice" onclick="rvb4('A', this)">A️⃣ Buying makes sense</button>
+      <button class="choice" onclick="rvb4('B', this)">B️⃣ Renting forever</button>
+      <button class="choice" onclick="rvb4('C', this)">C️⃣ Decide randomly</button>
+    </div>
+
+  </div>
+
+  <script src="rent-vs-buy-lbd.js"></script>
+</body>
+</html>

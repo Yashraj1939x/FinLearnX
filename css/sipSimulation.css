@@ -1,0 +1,307 @@
+/* ================================
+   SIP Investment Simulator - Styles
+   Modern Financial UI Design
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated background circles */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 20s infinite ease-in-out;
+}
+
+body::before {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -150px;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(30px, 30px) scale(1.1);
+    }
+}
+
+.box {
+    max-width: 450px;
+    width: 100%;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 255, 255, 0.1) inset;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    text-align: center;
+    color: #1e293b;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Input styling */
+input {
+    width: 100%;
+    padding: 15px 18px;
+    margin-top: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #334155;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+input:hover {
+    border-color: #cbd5e1;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Result section styling */
+.result {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8fafc, #e0e7ff);
+    border-radius: 15px;
+    border: 2px solid #e2e8f0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.result p {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #475569;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.result p:first-child {
+    color: #64748b;
+}
+
+.result p:nth-child(2) {
+    color: #0f766e;
+    font-size: 18px;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.result p:last-child {
+    color: #059669;
+    font-size: 20px;
+    font-weight: 700;
+    border-top: 2px solid #667eea;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.result span {
+    color: #1e293b;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.result p:nth-child(2) span {
+    color: #0f766e;
+    font-size: 20px;
+}
+
+.result p:last-child span {
+    color: #059669;
+    font-size: 22px;
+    text-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+}
+
+/* Number input arrows styling (WebKit) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+    height: 40px;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+    body {
+        padding: 15px;
+    }
+    
+    .box {
+        padding: 30px 25px;
+    }
+    
+    h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+    
+    input {
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+    
+    button {
+        padding: 14px;
+        font-size: 16px;
+    }
+    
+    .result p {
+        font-size: 15px;
+    }
+    
+    .result span {
+        font-size: 16px;
+    }
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Loading animation for button (optional - can be triggered via JS) */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+button.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}

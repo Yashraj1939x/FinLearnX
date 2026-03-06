@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Education Loan</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Education Loan</h1>
+    <p class="subtitle">
+      Understand education loans before committing to long-term debt.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You get admission into a college, but the fees are high.
+        You are considering taking an <strong>education loan</strong>.
+      </p>
+      <p class="goal">
+        🎯 Goal: Fund education without creating future financial pressure.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="eduMain('A')">
+        A️⃣ Take loan without checking terms
+      </button>
+
+      <button class="choice" onclick="eduMain('B')">
+        B️⃣ Understand loan amount, EMI, and repayment
+      </button>
+
+      <button class="choice" onclick="eduMain('C')">
+        C️⃣ Borrow maximum possible amount
+      </button>
+
+      <div id="edu-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Before taking an education loan, check:</p>
+      <ul>
+        <li>🎓 Course ROI (future earning potential)</li>
+        <li>💰 Total loan amount</li>
+        <li>📆 Repayment start date</li>
+      </ul>
+      <p class="hint">
+        Education loans are investments, not free money.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “A good education loan should support your future, not burden it.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Make smarter education loan decisions.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>💰 Scenario 1: Loan Amount Decision</h3>
+      <p>The bank approves a higher loan than required.</p>
+
+      <p><strong>Your choice?</strong></p>
+
+      <button class="choice" onclick="edu1('A', this)">A️⃣ Take full amount</button>
+      <button class="choice" onclick="edu1('B', this)">B️⃣ Take only required amount</button>
+      <button class="choice" onclick="edu1('C', this)">C️⃣ Use excess for lifestyle</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>⏳ Scenario 2: Repayment Start</h3>
+      <p>Loan repayment starts after course completion.</p>
+
+      <p><strong>Best approach?</strong></p>
+
+      <button class="choice" onclick="edu2('A', this)">A️⃣ Ignore repayment planning</button>
+      <button class="choice" onclick="edu2('B', this)">B️⃣ Plan EMI with expected salary</button>
+      <button class="choice" onclick="edu2('C', this)">C️⃣ Delay repayment intentionally</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>📉 Scenario 3: Course ROI Reality</h3>
+      <p>Your course has uncertain job outcomes.</p>
+
+      <p><strong>What should you do?</strong></p>
+
+      <button class="choice" onclick="edu3('A', this)">A️⃣ Take loan anyway</button>
+      <button class="choice" onclick="edu3('B', this)">B️⃣ Evaluate ROI carefully</button>
+      <button class="choice" onclick="edu3('C', this)">C️⃣ Ignore future income</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>📄 Scenario 4: Loan Terms</h3>
+      <p>You don’t understand interest and moratorium terms.</p>
+
+      <p><strong>Your action?</strong></p>
+
+      <button class="choice" onclick="edu4('A', this)">A️⃣ Sign documents blindly</button>
+      <button class="choice" onclick="edu4('B', this)">B️⃣ Ask questions & clarify</button>
+      <button class="choice" onclick="edu4('C', this)">C️⃣ Assume it’s standard</button>
+    </div>
+
+  </div>
+
+  <script src="education-loan-lbd.js"></script>
+</body>
+</html>

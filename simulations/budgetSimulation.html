@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Budget Planner - FinLearnX</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/budgetsSimulation.css">
+</head>
+
+<body>
+
+<a href="../index.html" class="back-link">← Back to Home</a>
+
+<div class="box">
+  <h2>Goal-Based Monthly Budget Planner</h2>
+
+  <input type="number" id="income" placeholder="Monthly Income (₹)">
+  <input type="number" id="savingPercent" placeholder="Savings Goal (%)">
+  <input type="number" id="needsPercent" placeholder="Needs Percentage (%)">
+  <input type="number" id="wantsPercent" placeholder="Wants Percentage (%)">
+
+  <button onclick="planBudget()">Generate Smart Budget</button>
+
+  <div class="result">
+    <p>Savings: ₹<span id="saveAmount">0</span></p>
+    <p>Rent / Housing: ₹<span id="rentAmt">0</span></p>
+    <p>Food & Groceries: ₹<span id="foodAmt">0</span></p>
+    <p>Transport: ₹<span id="transportAmt">0</span></p>
+    <p>Personal & Lifestyle: ₹<span id="personalAmt">0</span></p>
+    <p>Miscellaneous: ₹<span id="miscAmt">0</span></p>
+    <p><strong>Status:</strong> <span id="status">—</span></p>
+  </div>
+
+  <canvas id="budgetChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/budgetSimulation.js"></script>
+
+</body>
+</html>

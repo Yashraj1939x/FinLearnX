@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Investment</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Investment</h1>
+    <p class="subtitle">
+      Learn how to grow money wisely through real-life investment decisions.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You have saved <strong>₹10,000</strong> from your internship.
+        You want to invest it instead of letting it sit idle.
+      </p>
+      <p class="goal">
+        🎯 Goal: Grow money while managing risk.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="investMain('A')">
+        A️⃣ Invest everything without research
+      </button>
+
+      <button class="choice" onclick="investMain('B')">
+        B️⃣ Understand options before investing
+      </button>
+
+      <button class="choice" onclick="investMain('C')">
+        C️⃣ Avoid investing completely
+      </button>
+
+      <div id="invest-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Before investing, note down:</p>
+      <ul>
+        <li>🎯 Goal (short-term / long-term)</li>
+        <li>⚠️ Risk tolerance</li>
+        <li>⏳ Time horizon</li>
+      </ul>
+      <p class="hint">
+        Investment without clarity is gambling.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Good investing is about patience, not prediction.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>See how different investment choices affect outcomes.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>📊 Scenario 1: Risk vs Return</h3>
+      <p>You hear about a scheme promising very high returns.</p>
+
+      <p><strong>Your decision?</strong></p>
+
+      <button class="choice" onclick="invest1('A', this)">A️⃣ Invest immediately</button>
+      <button class="choice" onclick="invest1('B', this)">B️⃣ Check risk and credibility</button>
+      <button class="choice" onclick="invest1('C', this)">C️⃣ Borrow to invest more</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>📉 Scenario 2: Market Fall</h3>
+      <p>Your investment value drops temporarily.</p>
+
+      <p><strong>What will you do?</strong></p>
+
+      <button class="choice" onclick="invest2('A', this)">A️⃣ Panic and sell</button>
+      <button class="choice" onclick="invest2('B', this)">B️⃣ Stay invested long-term</button>
+      <button class="choice" onclick="invest2('C', this)">C️⃣ Stop all investments</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>⏳ Scenario 3: Short-Term Goal</h3>
+      <p>You need money within 1 year.</p>
+
+      <p><strong>Best approach?</strong></p>
+
+      <button class="choice" onclick="invest3('A', this)">A️⃣ High-risk stocks</button>
+      <button class="choice" onclick="invest3('B', this)">B️⃣ Safer instruments</button>
+      <button class="choice" onclick="invest3('C', this)">C️⃣ Ignore planning</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>📈 Scenario 4: SIP Discipline</h3>
+      <p>You plan to invest monthly through SIP.</p>
+
+      <p><strong>Your mindset?</strong></p>
+
+      <button class="choice" onclick="invest4('A', this)">A️⃣ Stop during market dips</button>
+      <button class="choice" onclick="invest4('B', this)">B️⃣ Continue consistently</button>
+      <button class="choice" onclick="invest4('C', this)">C️⃣ Invest randomly</button>
+    </div>
+
+  </div>
+
+  <script src="investment-lbd.js"></script>
+</body>
+</html>

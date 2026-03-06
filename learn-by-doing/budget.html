@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Budgeting</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Budgeting</h1>
+    <p class="subtitle">
+      Make real decisions. Learn from outcomes.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You are a college student earning <strong>₹15,000 per month</strong> from an internship.
+        Your expenses include food, travel, mobile recharge, subscriptions, and outings.
+      </p>
+      <p class="goal">
+        🎯 Goal: Save at least <strong>20%</strong> of your income without affecting daily life.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="selectChoice('A')">
+        A️⃣ Spend first, save whatever is left
+      </button>
+
+      <button class="choice" onclick="selectChoice('B')">
+        B️⃣ Save first, spend the remaining
+      </button>
+
+      <button class="choice" onclick="selectChoice('C')">
+        C️⃣ No planning, manage day by day
+      </button>
+
+      <div id="feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Write down your <strong>last 3 expenses</strong> and mark each as:</p>
+      <ul>
+        <li>✅ Need</li>
+        <li>⚠️ Want</li>
+      </ul>
+      <p class="hint">
+        This habit builds awareness — the first step of budgeting.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>“Budgeting is not about restriction, it’s about control.”</p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Apply budgeting concepts to real-life situations.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>📊 Scenario 1: Expense Overload</h3>
+      <p>You earn <strong>₹20,000/month</strong> but saving feels difficult.</p>
+
+      <ul>
+        <li>Rent: ₹6,000</li>
+        <li>Food: ₹4,000</li>
+        <li>Travel: ₹2,000</li>
+        <li>Subscriptions: ₹1,500</li>
+        <li>Outings & shopping: ₹4,000</li>
+      </ul>
+
+      <p><strong>Your decision?</strong></p>
+
+      <button class="choice" onclick="scenario1('A', this)">A️⃣ Reduce savings goal</button>
+      <button class="choice" onclick="scenario1('B', this)">B️⃣ Cut subscriptions & outings</button>
+      <button class="choice" onclick="scenario1('C', this)">C️⃣ Ignore savings</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>⚖️ Scenario 2: Needs vs Wants</h3>
+      <p>You marked all expenses as “needs”.</p>
+
+      <ul>
+        <li>Food delivery: ₹3,500</li>
+        <li>Cab instead of bus: ₹2,000</li>
+        <li>Movies & outings: ₹1,200</li>
+      </ul>
+
+      <p><strong>Best action?</strong></p>
+
+      <button class="choice" onclick="scenario2('A', this)">A️⃣ Everything is a need</button>
+      <button class="choice" onclick="scenario2('B', this)">B️⃣ Reclassify convenience as wants</button>
+      <button class="choice" onclick="scenario2('C', this)">C️⃣ Stop tracking</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>⏰ Scenario 3: Salary Came Early</h3>
+      <p>Your stipend arrives early, but rent is due in 12 days.</p>
+
+      <p><strong>What will you do first?</strong></p>
+
+      <button class="choice" onclick="scenario3('A', this)">A️⃣ Spend freely</button>
+      <button class="choice" onclick="scenario3('B', this)">B️⃣ Set aside fixed expenses</button>
+      <button class="choice" onclick="scenario3('C', this)">C️⃣ Stop all spending</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>🚨 Scenario 4: Emergency Expense</h3>
+      <p>Your phone breaks. Repair cost: <strong>₹3,000</strong>.</p>
+
+      <p><strong>How will you manage?</strong></p>
+
+      <button class="choice" onclick="scenario4('A', this)">A️⃣ Use savings</button>
+      <button class="choice" onclick="scenario4('B', this)">B️⃣ Borrow from friend</button>
+      <button class="choice" onclick="scenario4('C', this)">C️⃣ Use credit card</button>
+    </div>
+
+    <!-- ================= SCENARIO 5 ================= -->
+    <div class="card scenario-card">
+      <h3>🎉 Scenario 5: Festival Sale Trap</h3>
+      <p>Huge discounts everywhere. You didn’t plan shopping.</p>
+
+      <p><strong>Your move?</strong></p>
+
+      <button class="choice" onclick="scenario5('A', this)">A️⃣ Buy now</button>
+      <button class="choice" onclick="scenario5('B', this)">B️⃣ Check budget first</button>
+      <button class="choice" onclick="scenario5('C', this)">C️⃣ Ignore sales</button>
+    </div>
+
+    <!-- ================= SCENARIO 6 ================= -->
+    <div class="card scenario-card">
+      <h3>👥 Scenario 6: Lifestyle Pressure</h3>
+      <p>Your friends spend more than you can afford.</p>
+
+      <p><strong>What will you do?</strong></p>
+
+      <button class="choice" onclick="scenario6('A', this)">A️⃣ Match their lifestyle</button>
+      <button class="choice" onclick="scenario6('B', this)">B️⃣ Balance fun & budget</button>
+      <button class="choice" onclick="scenario6('C', this)">C️⃣ Avoid social life</button>
+    </div>
+
+  </div>
+
+  <script src="lbd.js"></script>
+</body>
+</html>

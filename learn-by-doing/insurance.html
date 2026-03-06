@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Insurance</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Insurance</h1>
+    <p class="subtitle">
+      Learn how insurance protects you from unexpected financial risks.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You are a student with limited income and no insurance coverage.
+        An unexpected medical expense could impact your savings.
+      </p>
+      <p class="goal">
+        🎯 Goal: Protect yourself from financial shocks using insurance.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="insuranceMain('A')">
+        A️⃣ Ignore insurance for now
+      </button>
+
+      <button class="choice" onclick="insuranceMain('B')">
+        B️⃣ Understand basic insurance and choose wisely
+      </button>
+
+      <button class="choice" onclick="insuranceMain('C')">
+        C️⃣ Buy insurance only when problem occurs
+      </button>
+
+      <div id="insurance-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>Check these insurance basics:</p>
+      <ul>
+        <li>🩺 Health insurance coverage</li>
+        <li>💰 Premium vs coverage</li>
+        <li>📄 Claim process</li>
+      </ul>
+      <p class="hint">
+        Insurance is bought before risk, not after.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Insurance transfers risk, not wealth.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Understand how insurance decisions affect your future.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>🏥 Scenario 1: Medical Emergency</h3>
+      <p>You face a sudden hospital bill of ₹80,000.</p>
+
+      <p><strong>Your situation?</strong></p>
+
+      <button class="choice" onclick="insurance1('A', this)">A️⃣ Pay from savings</button>
+      <button class="choice" onclick="insurance1('B', this)">B️⃣ Use health insurance</button>
+      <button class="choice" onclick="insurance1('C', this)">C️⃣ Borrow money</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>📄 Scenario 2: Policy Understanding</h3>
+      <p>You buy insurance without reading policy details.</p>
+
+      <p><strong>What can happen?</strong></p>
+
+      <button class="choice" onclick="insurance2('A', this)">A️⃣ Smooth claim always</button>
+      <button class="choice" onclick="insurance2('B', this)">B️⃣ Claim rejection risk</button>
+      <button class="choice" onclick="insurance2('C', this)">C️⃣ No impact</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>💰 Scenario 3: Low Premium Trap</h3>
+      <p>You choose the cheapest insurance plan.</p>
+
+      <p><strong>Best thinking?</strong></p>
+
+      <button class="choice" onclick="insurance3('A', this)">A️⃣ Cheap is always best</button>
+      <button class="choice" onclick="insurance3('B', this)">B️⃣ Balance cost & coverage</button>
+      <button class="choice" onclick="insurance3('C', this)">C️⃣ Avoid insurance</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>🚗 Scenario 4: Asset Insurance</h3>
+      <p>You own a bike/car.</p>
+
+      <p><strong>Your approach?</strong></p>
+
+      <button class="choice" onclick="insurance4('A', this)">A️⃣ Skip insurance renewal</button>
+      <button class="choice" onclick="insurance4('B', this)">B️⃣ Renew on time</button>
+      <button class="choice" onclick="insurance4('C', this)">C️⃣ Renew only after accident</button>
+    </div>
+
+  </div>
+
+  <script src="insurance-lbd.js"></script>
+</body>
+</html>

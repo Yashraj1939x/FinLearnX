@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn by Doing – Credit Score</title>
+  <link rel="stylesheet" href="lbd.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Learn by Doing: Credit Score</h1>
+    <p class="subtitle">
+      Understand how your financial behavior affects your creditworthiness.
+    </p>
+
+    <!-- ================= MAIN SCENARIO ================= -->
+    <div class="card">
+      <h2>📘 Main Scenario</h2>
+      <p>
+        You recently got your <strong>first credit card</strong>.
+        Your limit is <strong>₹40,000</strong>.
+      </p>
+      <p class="goal">
+        🎯 Goal: Build a <strong>healthy credit score</strong> over time.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🤔 What will you do?</h2>
+
+      <button class="choice" onclick="creditMain('A')">
+        A️⃣ Use full limit regularly
+      </button>
+
+      <button class="choice" onclick="creditMain('B')">
+        B️⃣ Use limited amount & pay on time
+      </button>
+
+      <button class="choice" onclick="creditMain('C')">
+        C️⃣ Ignore card usage tracking
+      </button>
+
+      <div id="credit-feedback" class="feedback"></div>
+    </div>
+
+    <!-- ================= MINI TASK ================= -->
+    <div class="card task">
+      <h2>📝 Mini Task</h2>
+      <p>
+        Note down:
+      </p>
+      <ul>
+        <li>💳 Credit limit</li>
+        <li>📅 Bill due date</li>
+        <li>📊 Monthly usage %</li>
+      </ul>
+      <p class="hint">
+        Awareness is the foundation of a good credit score.
+      </p>
+    </div>
+
+    <!-- ================= KEY TAKEAWAY ================= -->
+    <div class="card takeaway">
+      <h2>💡 Key Learning</h2>
+      <p>
+        “Credit score reflects discipline, not income.”
+      </p>
+    </div>
+
+    <!-- ================= PRACTICE SCENARIOS ================= -->
+    <div class="card">
+      <h2>🧠 Practice Scenarios</h2>
+      <p>Learn how daily decisions affect your credit score.</p>
+    </div>
+
+    <!-- ================= SCENARIO 1 ================= -->
+    <div class="card scenario-card">
+      <h3>📊 Scenario 1: High Credit Utilization</h3>
+      <p>You consistently use <strong>90% of your credit limit</strong>.</p>
+
+      <p><strong>Your action?</strong></p>
+
+      <button class="choice" onclick="credit1('A', this)">A️⃣ Continue usage</button>
+      <button class="choice" onclick="credit1('B', this)">B️⃣ Reduce usage below 30%</button>
+      <button class="choice" onclick="credit1('C', this)">C️⃣ Apply for more cards</button>
+    </div>
+
+    <!-- ================= SCENARIO 2 ================= -->
+    <div class="card scenario-card">
+      <h3>⏰ Scenario 2: Missed Payment</h3>
+      <p>You forgot to pay your credit card bill this month.</p>
+
+      <p><strong>What next?</strong></p>
+
+      <button class="choice" onclick="credit2('A', this)">A️⃣ Ignore it</button>
+      <button class="choice" onclick="credit2('B', this)">B️⃣ Pay immediately</button>
+      <button class="choice" onclick="credit2('C', this)">C️⃣ Wait till next cycle</button>
+    </div>
+
+    <!-- ================= SCENARIO 3 ================= -->
+    <div class="card scenario-card">
+      <h3>📄 Scenario 3: Credit History Length</h3>
+      <p>You are thinking of closing your oldest credit card.</p>
+
+      <p><strong>Your decision?</strong></p>
+
+      <button class="choice" onclick="credit3('A', this)">A️⃣ Close it</button>
+      <button class="choice" onclick="credit3('B', this)">B️⃣ Keep it active</button>
+      <button class="choice" onclick="credit3('C', this)">C️⃣ Close all cards</button>
+    </div>
+
+    <!-- ================= SCENARIO 4 ================= -->
+    <div class="card scenario-card">
+      <h3>📉 Scenario 4: Multiple Loan Applications</h3>
+      <p>You apply for multiple loans in a short time.</p>
+
+      <p><strong>Your approach?</strong></p>
+
+      <button class="choice" onclick="credit4('A', this)">A️⃣ Apply everywhere</button>
+      <button class="choice" onclick="credit4('B', this)">B️⃣ Apply selectively</button>
+      <button class="choice" onclick="credit4('C', this)">C️⃣ Apply again later</button>
+    </div>
+
+    <!-- ================= SCENARIO 5 ================= -->
+    <div class="card scenario-card">
+      <h3>💳 Scenario 5: EMI vs Credit Card</h3>
+      <p>You want to buy a phone worth ₹25,000.</p>
+
+      <p><strong>What is better?</strong></p>
+
+      <button class="choice" onclick="credit5('A', this)">A️⃣ Minimum due only</button>
+      <button class="choice" onclick="credit5('B', this)">B️⃣ EMI with planning</button>
+      <button class="choice" onclick="credit5('C', this)">C️⃣ Pay full amount</button>
+    </div>
+
+  </div>
+
+  <script src="credit-lbd.js"></script>
+</body>
+</html>
