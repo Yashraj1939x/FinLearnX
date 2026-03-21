@@ -303,3 +303,31 @@ if (!document.querySelector('style[data-health-animations]')) {
     `;
     document.head.appendChild(style);
 }
+
+// Initialize financial health assessment
+function initializeFinancialHealth() {
+    console.log('Initializing financial health assessment...');
+    
+    // Show first question
+    const firstQuestion = document.querySelector('.question[data-question="1"]');
+    if (firstQuestion) {
+        firstQuestion.classList.add('active');
+    }
+    
+    // Update progress dots
+    updateProgressDots();
+    updateNavigationButtons();
+}
+
+// Try to initialize on DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeFinancialHealth);
+} else {
+    // DOM already loaded, initialize immediately
+    initializeFinancialHealth();
+}
+
+// Make functions globally available after they are defined
+window.nextQuestion = nextQuestion;
+window.previousQuestion = previousQuestion;
+window.calculateHealthScore = calculateHealthScore;

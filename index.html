@@ -1,13 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>FinLearnX</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinLearnX - Master Your Finances</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-alt: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.2);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-  <link rel="stylesheet" href="./css/style.css">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: backgroundMove 20s linear infinite;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 10%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes backgroundMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(50px, 50px) rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
+            background-size: 30px 30px;
+            animation: heroMove 15s linear infinite;
+        }
+
+        @keyframes heroMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(30px, 30px) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: heroSlide 1s ease-out;
+        }
+
+        @keyframes heroSlide {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); }
+            to { text-shadow: 2px 2px 30px rgba(255, 255, 255, 0.5); }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-hero:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-primary-hero {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary-hero:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary-hero {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--white);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary-hero:hover {
+            background: rgba(99, 102, 241, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Enhanced Sections */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+
+        /* Enhanced Platform Cards */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .platform-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: cardSlide 0.8s ease-out;
+        }
+
+        @keyframes cardSlide {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .platform-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .platform-subtitle {
+            color: #6b7280;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .platform-preview {
+            background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(248,250,252,0.5) 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .preview-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .preview-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .preview-content li {
+            padding: 8px 0;
+            color: #6b7280;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .preview-content li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: var(--white);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        /* Enhanced Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 80px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: particleFloat 10s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Video Link Styling */
+        .video-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .video-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .platform-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
-
-
 
 <!-- =====================
      HERO / INTRO
@@ -18,36 +469,25 @@
   <div id="background-2" class="background-2"></div>
 </div>
 
+<!-- Floating Particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Enhanced Hero Section -->
 <section class="hero">
-
-  <spline-viewer
-    class="spline-bg"
-    url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
-    events-target="global">
-  </spline-viewer>
-
-  <div class="hero-content">
-    <h1 class="hero-title">FinLearnX</h1>
-    <p class="hero-subtitle">
-      Learn financial concepts. Apply them using real-world simulations.
-    </p>
-    <span class="scroll-hint">↓ Scroll to explore</span>
-  </div>
-
+    <div class="hero-content">
+        <h1> FinLearnX</h1>
+        <p>Master Your Finances with Interactive Learning Tools</p>
+        <div class="hero-buttons">
+            <a href="#expense-tracker" class="btn-hero btn-primary-hero">
+                <span></span>
+                Track Expenses
+            </a>
+            <a href="#quizzes" class="btn-hero btn-secondary-hero">
+                <span> Take Quizzes
+            </a>
+        </div>
+    </div>
 </section>
-
-<!-- REST OF YOUR SITE (UNCHANGED) -->
-<section class="content">
-  <!-- Financial Literacy Topics -->
-  <!-- Simulations -->
-  <!-- Quizzes -->
-</section>
-
-<script src="./js/hero-bg.js"></script>
-<script src="./js/main.js"></script>
-
-</body>
-
 
 
 <!-- =====================
@@ -61,52 +501,62 @@
     <div class="topic-card" onclick="goTo('pages/budget.html')">
       <h3>💰 Budgeting</h3>
       <p>Plan income, manage expenses, and build saving habits.</p>
+      <a href="https://youtu.be/Hnf5BRh5bdg?si=9S2HOeMA4EetHd37" target="_blank" class="video-link">📹 Watch Video</a>
     </div>
 
     <div class="topic-card" onclick="goTo('pages/credit.html')">
       <h3>💳 Credit Score</h3>
       <p>Understand creditworthiness and its impact on loans.</p>
+      <a href="https://youtu.be/zA_Wln52w9w?si=j0_0yEMJm4uzMOpU" target="_blank" class="video-link">📹 Watch Video</a>
     </div>
 
     <div class="topic-card" onclick="goTo('pages/investment.html')">
       <h3>📈 Investment</h3>
       <p>Grow money over time with smart investment strategies.</p>
+      <a href="https://youtu.be/JrGp4ofULzQ?si=-tF6v-MUyvC-4hcv" target="_blank" class="video-link">📹 Watch Video</a>
     </div>
  <div class="topic-card" onclick="goTo('pages/banking.html')">
     <h2>🏦 Banking</h2>
     <p>Types of banks, accounts, and digital banking.</p>
+    <a href="https://youtu.be/dXiWHdF5ZHo?si=vxK_t1fm-rfYUyG6" target="_blank" class="video-link">📹 Watch Video</a>
   </div>
 
   <div class="topic-card" onclick="goTo('pages/loans.html')">
     <h2>💸 Loans & Debt</h2>
     <p>Understand loans, EMIs, and debt management.</p>
+    <a href="https://youtu.be/VpOtVMbR8bU?si=cm4X9fqR69TA6xkO" target="_blank" class="video-link">📹 Watch Video</a>
   </div>
 
   <div class="topic-card" onclick="goTo('pages/insurance.html')">
     <h2>🛡 Insurance</h2>
     <p>Protect yourself from financial risks.</p>
+    <a href="https://youtu.be/siPVZ8qeXBA?si=_QyqmKLGc_IkAyAK" target="_blank" class="video-link">📹 Watch Video</a>
   </div>
 
   <!-- NEW ROW -->
   <div class="topic-card" onclick="goTo('pages/employment.html')">
     <h2>💼 Employment</h2>
     <p>Income sources, jobs, and employment types.</p>
+    <a href="https://youtu.be/En22ZAqXsco?si=MGY_baVFWu_D9Qdv" target="_blank" class="video-link">📹 Watch Video</a>
   </div>
 
   <div class="topic-card" onclick="goTo('pages/taxes.html')">
     <h2>🧾 Taxes</h2>
     <p>Income tax, GST, and tax planning basics.</p>
+    <a href="https://youtu.be/FbS9BaF7w0Q?si=EeTvwnbR350pznYx" target="_blank" class="video-link">📹 Watch Video</a>
   </div>
 
   <div class="topic-card" onclick="goTo('pages/housing.html')">
     <h2>🏠 Housing</h2>
     <p>Renting vs buying a house.</p>
+    <a href="https://youtu.be/CBIJwb37O_4?si=U5GY6cpuxwRLwHbx" target="_blank" class="video-link">📹 Watch Video</a>
   </div>
 
   <!-- LAST ROW -->
   <div class="topic-card" onclick="goTo('pages/scams.html')">
     <h2>🚨 Scams & Frauds</h2>
     <p>Identify frauds and protect your money.</p>
+    <a href="https://youtu.be/VxdPwBlKPts?si=oiQ2t4WBLt7t5UBp" target="_blank" class="video-link">📹 Watch Video</a>
   </div>
 
 </div>
@@ -259,6 +709,9 @@
       digital banking, loans, interest, RBI, and safe banking practices.
     </p>
     <span class="cta">Start Learning →</span>
+    <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+      <a href="https://youtu.be/MR-e3e50-j8?si=3a21jj3gzHZNxuWO" target="_blank" class="video-link">🏦 Banking Awareness</a>
+    </div>
   </div>
 </section>
   </div>
@@ -269,6 +722,19 @@
     Learn how digital payments work behind the scenes —
     from UPI to cards and security layers.
   </p>
+
+  <div class="platform-card" onclick="location.href='banking/online-payments.html'">
+    <h3>Explore Online Payments</h3>
+    <p>
+      Learn about UPI, net banking, digital wallets,
+      payment gateways, and secure online transactions.
+    </p>
+    <span class="cta">Start Learning →</span>
+    <div style="margin-top: 15px;">
+      <a href="https://youtu.be/gG5kLlfZcik?si=EWXiiAttTV0G4KuK" target="_blank" class="video-link">💳 Watch Online Payments Video</a>
+    </div>
+  </div>
+</section>
 
   <div class="platform-card"
        onclick="location.href='online-payments/online-payments.html'">
@@ -529,84 +995,49 @@
     Track your daily expenses, categorize spending, and visualize where your money goes.
   </p>
 
-  <div class="expense-tracker-container">
-    <div class="add-expense-card">
-      <h3>Add New Expense</h3>
-      <div class="expense-form">
-        <div class="form-group">
-          <label for="expense-description">Description</label>
-          <input type="text" id="expense-description" placeholder="e.g., Coffee at Starbucks">
-        </div>
-        
-        <div class="form-row">
-          <div class="form-group">
-            <label for="expense-amount">Amount ($)</label>
-            <input type="number" id="expense-amount" placeholder="0.00" step="0.01" min="0">
-          </div>
-          
-          <div class="form-group">
-            <label for="expense-category">Category</label>
-            <select id="expense-category">
-              <option value="food">🍔 Food & Dining</option>
-              <option value="transport">🚗 Transportation</option>
-              <option value="shopping">🛍️ Shopping</option>
-              <option value="entertainment">🎬 Entertainment</option>
-              <option value="bills">📄 Bills & Utilities</option>
-              <option value="healthcare">🏥 Healthcare</option>
-              <option value="education">📚 Education</option>
-              <option value="other">📦 Other</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="expense-date">Date</label>
-          <input type="date" id="expense-date">
-        </div>
-        
-        <button class="add-expense-btn" onclick="addExpense()">Add Expense</button>
-      </div>
+  <div class="platform-preview">
+    <div class="preview-content">
+      <h3>🌟 Beautiful Expense Management</h3>
+      <ul>
+        <li>✨ Modern, gradient-based design</li>
+        <li>🎨 Beautiful color schemes and animations</li>
+        <li>📱 Fully responsive and mobile-friendly</li>
+        <li>💾 LocalStorage data persistence</li>
+        <li>📊 Interactive category breakdowns</li>
+        <li>🔍 Smart filtering options</li>
+        <li>⚡ Real-time updates and summaries</li>
+      </ul>
+      <button class="cta-button" onclick="goTo('expense-tracker-new.html')">
+        Open Beautiful Expense Tracker →
+      </button>
     </div>
+  </div>
+</section>
 
-    <div class="expense-summary-card">
-      <h3>Monthly Summary</h3>
-      <div class="summary-stats">
-        <div class="summary-item">
-          <span class="summary-label">Total Expenses</span>
-          <span class="summary-value" id="total-expenses">$0.00</span>
-        </div>
-        <div class="summary-item">
-          <span class="summary-label">Average Daily</span>
-          <span class="summary-value" id="daily-average">$0.00</span>
-        </div>
-        <div class="summary-item">
-          <span class="summary-label">Highest Category</span>
-          <span class="summary-value" id="highest-category">-</span>
-        </div>
-      </div>
-      
-      <div class="category-breakdown">
-        <h4>Category Breakdown</h4>
-        <div id="category-chart">
-          <div class="chart-placeholder">Add expenses to see breakdown</div>
-        </div>
-      </div>
-    </div>
+<!-- =====================
+     FINANCIAL QUIZZES
+====================== -->
+<section class="quiz-section">
+  <h2 class="section-title">🧠 Financial Quizzes</h2>
+  <p class="section-subtitle">
+    Test your knowledge with our beautiful, interactive quizzes.
+  </p>
 
-    <div class="expense-list-card">
-      <h3>Recent Expenses</h3>
-      <div class="expense-filters">
-        <button class="filter-btn active" onclick="filterExpenses('all')">All</button>
-        <button class="filter-btn" onclick="filterExpenses('today')">Today</button>
-        <button class="filter-btn" onclick="filterExpenses('week')">This Week</button>
-        <button class="filter-btn" onclick="filterExpenses('month')">This Month</button>
-      </div>
-      
-      <div class="expense-list" id="expense-list">
-        <div class="no-expenses">No expenses recorded yet</div>
-      </div>
-      
-      <button class="clear-btn" onclick="clearAllExpenses()">Clear All Expenses</button>
+  <div class="platform-preview">
+    <div class="preview-content">
+      <h3>🎨 Stunning Quiz Experience</h3>
+      <ul>
+        <li>✨ Beautiful gradient designs</li>
+        <li>🎯 4 comprehensive financial topics</li>
+        <li>📊 Interactive quiz modals</li>
+        <li>💡 Detailed explanations and feedback</li>
+        <li>🏆 Performance tracking and scoring</li>
+        <li>📱 Fully responsive design</li>
+        <li>⚡ Smooth animations and transitions</li>
+      </ul>
+      <button class="cta-button" onclick="goTo('quizzes-new.html')">
+        Try Beautiful Quizzes →
+      </button>
     </div>
   </div>
 </section>
@@ -617,186 +1048,23 @@
 <section class="financial-health-section">
   <h2 class="platform-title">🏥 Financial Health Assessment</h2>
   <p class="platform-subtitle">
-    Evaluate your financial well-being with our comprehensive health check and get personalized recommendations.
+    Evaluate your financial well-being with our comprehensive health check.
   </p>
 
-  <div class="health-assessment-container">
-    <div class="assessment-card">
-      <h3>Financial Questionnaire</h3>
-      <div class="questionnaire-container" id="questionnaire-container">
-        <div class="question active" data-question="1">
-          <h4>1. Do you have an emergency fund?</h4>
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q1" value="3">
-              <span>Yes, 6+ months of expenses</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q1" value="2">
-              <span>Yes, 3-6 months of expenses</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q1" value="1">
-              <span>Yes, less than 3 months</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q1" value="0">
-              <span>No emergency fund</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="question" data-question="2">
-          <h4>2. How much of your income do you save monthly?</h4>
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q2" value="3">
-              <span>20% or more</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q2" value="2">
-              <span>10-19%</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q2" value="1">
-              <span>5-9%</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q2" value="0">
-              <span>Less than 5%</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="question" data-question="3">
-          <h4>3. Do you track your expenses regularly?</h4>
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q3" value="3">
-              <span>Daily, with detailed tracking</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q3" value="2">
-              <span>Weekly or monthly</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q3" value="1">
-              <span>Occasionally</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q3" value="0">
-              <span>Never</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="question" data-question="4">
-          <h4>4. What's your debt-to-income ratio?</h4>
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q4" value="3">
-              <span>Less than 20%</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="2">
-              <span>20-35%</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="1">
-              <span>36-50%</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q4" value="0">
-              <span>More than 50%</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="question" data-question="5">
-          <h4>5. Are you investing for retirement?</h4>
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="q5" value="3">
-              <span>Yes, consistently and diversified</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q5" value="2">
-              <span>Yes, but irregularly</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q5" value="1">
-              <span>Just started</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="q5" value="0">
-              <span>No, not yet</span>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="assessment-controls">
-        <button class="prev-btn" onclick="previousQuestion()" id="prev-btn" disabled>Previous</button>
-        <div class="progress-dots">
-          <span class="dot active" data-question="1"></span>
-          <span class="dot" data-question="2"></span>
-          <span class="dot" data-question="3"></span>
-          <span class="dot" data-question="4"></span>
-          <span class="dot" data-question="5"></span>
-        </div>
-        <button class="next-btn" onclick="nextQuestion()" id="next-btn">Next</button>
-        <button class="submit-btn" onclick="calculateHealthScore()" id="submit-btn" style="display: none;">Get Assessment</button>
-      </div>
-    </div>
-
-    <div class="results-card">
-      <h3>Your Financial Health Report</h3>
-      <div class="health-score-display" id="health-score-display">
-        <div class="score-circle">
-          <div class="score-value" id="score-value">-</div>
-          <div class="score-label">Score</div>
-        </div>
-        <div class="health-status" id="health-status">Complete the assessment</div>
-      </div>
-
-      <div class="health-breakdown" id="health-breakdown" style="display: none;">
-        <h4>Health Breakdown</h4>
-        <div class="breakdown-item">
-          <span class="breakdown-label">Emergency Preparedness</span>
-          <div class="breakdown-bar">
-            <div class="breakdown-fill" id="emergency-fill"></div>
-          </div>
-        </div>
-        <div class="breakdown-item">
-          <span class="breakdown-label">Saving Habits</span>
-          <div class="breakdown-bar">
-            <div class="breakdown-fill" id="saving-fill"></div>
-          </div>
-        </div>
-        <div class="breakdown-item">
-          <span class="breakdown-label">Expense Management</span>
-          <div class="breakdown-bar">
-            <div class="breakdown-fill" id="expense-fill"></div>
-          </div>
-        </div>
-        <div class="breakdown-item">
-          <span class="breakdown-label">Debt Management</span>
-          <div class="breakdown-bar">
-            <div class="breakdown-fill" id="debt-fill"></div>
-          </div>
-        </div>
-        <div class="breakdown-item">
-          <span class="breakdown-label">Investment Planning</span>
-          <div class="breakdown-bar">
-            <div class="breakdown-fill" id="investment-fill"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="recommendations" id="recommendations" style="display: none;">
-        <h4>Personalized Recommendations</h4>
-        <div id="recommendations-list"></div>
-      </div>
+  <div class="platform-preview">
+    <div class="preview-content">
+      <h3>🌟 Complete Financial Analysis</h3>
+      <ul>
+        <li>📋 5-question comprehensive assessment</li>
+        <li>📊 Visual health score breakdown</li>
+        <li>💡 Personalized recommendations</li>
+        <li>🎯 Actionable improvement tips</li>
+        <li>📈 Progress tracking capabilities</li>
+        <li>🎨 Beautiful result visualization</li>
+      </ul>
+      <button class="cta-button" onclick="goTo('tools/financial-health.html')">
+        Start Health Assessment →
+      </button>
     </div>
   </div>
 </section>
@@ -806,88 +1074,145 @@
 
     
 </section>
->>>>>>> 1ef19192d28c65c5f72e2f717361dc477c41d08f
-<section class="quiz-section">
-  <h2 class="section-title">🧠 Financial Quizzes</h2>
-  <p class="section-subtitle">
-    Test your financial habits, decisions, and investment knowledge.
-  </p>
-
-  <!-- Money Personality Quiz -->
-  <div class="quiz-card">
-    <div class="quiz-info">
-      <h3>Money Personality Quiz</h3>
-      <p>
-        Discover whether you are a spender, saver, balancer, or investor.
-      </p>
-    </div>
-
-    <button onclick="goTo('quizzes/moneyQuiz.html')">
-      Start Quiz →
-    </button>
-  </div>
-
-  <!-- Financial Decision-Making Quiz -->
-  <div class="quiz-card">
-    <div class="quiz-info">
-      <h3>Financial Decision-Making Quiz</h3>
-      <p>
-        Test how smart your real-life financial decisions are.
-      </p>
-    </div>
-
-    <button onclick="goTo('quizzes/decision-quiz.html')">
-      Start Quiz →
-    </button>
-  </div>
-
-  <!-- Investment Knowledge Quiz -->
-  <div class="quiz-card">
-    <div class="quiz-info">
-      <h3>Investment Basics Quiz</h3>
-      <p>
-        Check your understanding of SIPs, mutual funds, risk, and returns.
-      </p>
-    </div>
-
-    <button onclick="goTo('quizzes/investment-quiz.html')">
-      Start Quiz →
-    </button>
-  </div>
-
-</section>
 
 </section>
 
 
+
+<!-- Enhanced Tools Section - MOVED TO END -->
+<section id="tools" class="section">
+    <h2 class="section-title">🛠️ Financial Tools</h2>
+    <p class="section-subtitle">
+        Interactive tools to help you master your finances
+    </p>
+
+    <div class="platform-grid">
+        <!-- Expense Tracker -->
+        <div class="platform-card">
+            <h2 class="platform-title">
+                <span>💰</span>
+                Beautiful Expense Tracker
+            </h2>
+            <div class="platform-preview">
+                <h3>✨ Stunning Visual Design</h3>
+                <ul>
+                    <li>Modern gradient-based UI with animations</li>
+                    <li>Real-time expense tracking and categorization</li>
+                    <li>Beautiful charts and visual breakdowns</li>
+                    <li>Smart filtering and data persistence</li>
+                    <li>Responsive and mobile-friendly design</li>
+                </ul>
+                <a href="expense-tracker-new.html" class="cta-button">
+                    Try Beautiful Expense Tracker →
+                </a>
+            </div>
+        </div>
+
+        <!-- Financial Quizzes -->
+        <div class="platform-card">
+            <h2 class="platform-title">
+                <span>🧠</span>
+                Interactive Financial Quizzes
+            </h2>
+            <div class="platform-preview">
+                <h3>🎨 Stunning Quiz Experience</h3>
+                <ul>
+                    <li>4 comprehensive financial topics</li>
+                    <li>Beautiful modal-based quiz interface</li>
+                    <li>Detailed explanations and feedback</li>
+                    <li>Performance tracking and scoring</li>
+                    <li>Smooth animations and transitions</li>
+                </ul>
+                <a href="quizzes-new.html" class="cta-button">
+                    Try Beautiful Quizzes →
+                </a>
+            </div>
+        </div>
+
+        <!-- Financial Health Assessment -->
+        <div class="platform-card">
+            <h2 class="platform-title">
+                <span>🏥</span>
+                Financial Health Assessment
+            </h2>
+            <div class="platform-preview">
+                <h3>🌟 Complete Analysis</h3>
+                <ul>
+                    <li>5-question comprehensive assessment</li>
+                    <li>Visual health score breakdown</li>
+                    <li>Personalized recommendations</li>
+                    <li>Actionable improvement tips</li>
+                    <li>Beautiful result visualization</li>
+                </ul>
+                <a href="tools/financial-health.html" class="cta-button">
+                    Start Assessment →
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- =====================
      FOOTER
 ====================== -->
 <footer class="footer">
-  <p>© 2025 FinLearnX • Built for financial awareness</p>
+  <p> 2025 FinLearnX • Built for financial awareness</p>
 </footer>
 
 <script src="./js/main.js"></script>
   <script src="./js/main.js"></script>
-<<<<<<< HEAD
 <script src="./js/currency-converter.js"></script>
 <script src="./js/stock-simulator.js"></script>
 <script src="./js/retirement-calculator.js"></script>
 <script src="./js/expense-tracker.js"></script>
 <script src="./js/financial-health.js"></script>
-=======
->>>>>>> 1ef19192d28c65c5f72e2f717361dc477c41d08f
+<script src="./js/quiz-system.js"></script>
   <!-- Libraries FIRST -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.min.js"></script>
 
-<!-- ✅ Your CUSTOM JS file -->
+<!-- Your CUSTOM JS file -->
 <script src="./js/hero-bg.js"></script>
-<script src="./js/main.js"></script>
+<script>
+        // Create floating particles
+        function createFloatingParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
 
+        // Initialize enhanced UI
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating particles
+            createFloatingParticles();
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(anchor.getAttribute('href').substring(1));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
 
+        // Enhanced goTo function
+        function goTo(page) {
+            window.location.href = page;
+        }
+    </script>
 
+    <script src="./js/main.js"></script>
 </body>
 </html>

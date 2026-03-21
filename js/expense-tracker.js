@@ -15,9 +15,14 @@ const categoryInfo = {
 };
 
 // Initialize expense tracker
-document.addEventListener('DOMContentLoaded', function() {
+function initializeExpenseTracker() {
+    console.log('Initializing expense tracker...');
+    
     // Set today's date as default
-    document.getElementById('expense-date').valueAsDate = new Date();
+    const dateInput = document.getElementById('expense-date');
+    if (dateInput) {
+        dateInput.valueAsDate = new Date();
+    }
     
     // Load existing expenses
     updateExpenseList();
@@ -25,18 +30,33 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCategoryChart();
     
     // Add enter key support for amount field
-    document.getElementById('expense-amount').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            addExpense();
-        }
-    });
-});
+    const amountInput = document.getElementById('expense-amount');
+    if (amountInput) {
+        amountInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addExpense();
+            }
+        });
+    }
+}
+
+// Try to initialize on DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeExpenseTracker);
+} else {
+    // DOM already loaded, initialize immediately
+    initializeExpenseTracker();
+}
 
 function addExpense() {
+    console.log('addExpense function called'); // Debug log
+    
     const description = document.getElementById('expense-description').value.trim();
     const amount = parseFloat(document.getElementById('expense-amount').value);
     const category = document.getElementById('expense-category').value;
     const date = document.getElementById('expense-date').value;
+    
+    console.log('Form values:', { description, amount, category, date }); // Debug log
     
     // Validation
     if (!description) {
@@ -64,6 +84,8 @@ function addExpense() {
         timestamp: new Date().toISOString()
     };
     
+    console.log('Created expense:', expense); // Debug log
+    
     // Add to expenses array
     expenses.unshift(expense);
     
@@ -81,6 +103,7 @@ function addExpense() {
     updateCategoryChart();
     
     showMessage('Expense added successfully!', 'success');
+    console.log('Expense added successfully'); // Debug log
 }
 
 function updateExpenseList() {
@@ -273,3 +296,8 @@ if (!document.querySelector('style[data-expense-animations]')) {
     `;
     document.head.appendChild(style);
 }
+
+// Make functions globally available after they are defined
+window.addExpense = addExpense;
+window.filterExpenses = filterExpenses;
+window.clearAllExpenses = clearAllExpenses;

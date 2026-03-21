@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Quizzes - FinLearnX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .quiz-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .quiz-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .quiz-description {
+            color: #6b7280;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .quiz-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            background: var(--light);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-success {
+            background: var(--gradient-success);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: var(--light);
+            color: var(--dark);
+            border: 2px solid var(--light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .quiz-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .modal-subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .progress-bar {
+            background: var(--light);
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .question {
+            margin-bottom: 30px;
+        }
+
+        .question-number {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            background: var(--light);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .option.selected {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .option-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .option.selected .option-radio {
+            background: var(--primary);
+        }
+
+        .option.selected .option-radio::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--white);
+            border-radius: 50%;
+        }
+
+        .option-text {
+            flex: 1;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light);
+        }
+
+        .results-container {
+            display: none;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .performance-level {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .performance-message {
+            color: #6b7280;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .answers-review {
+            margin-bottom: 30px;
+        }
+
+        .answer-item {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .answer-item.correct {
+            border-left-color: var(--success);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .answer-item.incorrect {
+            border-left-color: var(--danger);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .answer-question {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .answer-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .your-answer {
+            font-weight: 500;
+        }
+
+        .correct-answer {
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        .wrong-answer {
+            color: var(--danger);
+            font-weight: 500;
+        }
+
+        .answer-explanation {
+            color: #6b7280;
+            font-style: italic;
+            font-size: 0.9rem;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--white);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .quiz-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 20px;
+            }
+            
+            .quiz-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🧠 Financial Quizzes</h1>
+            <p>Test your knowledge of budgeting, credit, investing, and taxes with our interactive quizzes</p>
+        </div>
+
+        <div class="quiz-grid">
+            <div class="quiz-card">
+                <span class="quiz-icon">💰</span>
+                <h3 class="quiz-title">Budgeting Basics</h3>
+                <p class="quiz-description">Master the fundamentals of budgeting, including the 50/30/20 rule, emergency funds, and smart saving strategies.</p>
+                <div class="quiz-stats">
+                    <span class="stat">5 Questions</span>
+                    <span class="stat">10 mins</span>
+                </div>
+                <button class="btn btn-primary" onclick="startQuiz('budgeting')">
+                    Start Quiz →
+                </button>
+            </div>
+
+            <div class="quiz-card">
+                <span class="quiz-icon">💳</span>
+                <h3 class="quiz-title">Credit Score Mastery</h3>
+                <p class="quiz-description">Understanding credit scores, utilization ratios, and how to build and maintain excellent credit.</p>
+                <div class="quiz-stats">
+                    <span class="stat">5 Questions</span>
+                    <span class="stat">10 mins</span>
+                </div>
+                <button class="btn btn-primary" onclick="startQuiz('credit')">
+                    Start Quiz →
+                </button>
+            </div>
+
+            <div class="quiz-card">
+                <span class="quiz-icon">📈</span>
+                <h3 class="quiz-title">Investment Fundamentals</h3>
+                <p class="quiz-description">Learn about compound interest, diversification, risk tolerance, and basic investment strategies.</p>
+                <div class="quiz-stats">
+                    <span class="stat">5 Questions</span>
+                    <span class="stat">10 mins</span>
+                </div>
+                <button class="btn btn-primary" onclick="startQuiz('investment')">
+                    Start Quiz →
+                </button>
+            </div>
+
+            <div class="quiz-card">
+                <span class="quiz-icon">📋</span>
+                <h3 class="quiz-title">Tax Essentials</h3>
+                <p class="quiz-description">Understanding tax deductions, credits, filing deadlines, and basic tax concepts for financial planning.</p>
+                <div class="quiz-stats">
+                    <span class="stat">5 Questions</span>
+                    <span class="stat">10 mins</span>
+                </div>
+                <button class="btn btn-primary" onclick="startQuiz('tax')">
+                    Start Quiz →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-modal" id="quizModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeQuiz()">×</button>
+                <h2 class="modal-title" id="modalTitle">Quiz Title</h2>
+                <p class="modal-subtitle" id="modalSubtitle">Test your knowledge</p>
+            </div>
+            
+            <div class="modal-body">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <div id="quizContainer">
+                    <!-- Quiz content will be inserted here -->
+                </div>
+
+                <div class="results-container" id="resultsContainer">
+                    <!-- Results will be inserted here -->
+                </div>
+
+                <div class="quiz-controls" id="quizControls">
+                    <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" disabled>Previous</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz Data
+        const quizData = {
+            budgeting: {
+                title: 'Budgeting Basics Quiz',
+                subtitle: 'Master your budget with smart money management',
+                questions: [
+                    {
+                        question: 'What is the 50/30/20 budgeting rule?',
+                        options: [
+                            '50% needs, 30% wants, 20% savings',
+                            '50% savings, 30% needs, 20% wants',
+                            '50% wants, 30% savings, 20% needs',
+                            '50% bills, 30% food, 20% entertainment'
+                        ],
+                        correct: 0,
+                        explanation: 'The 50/30/20 rule allocates 50% to needs, 30% to wants, and 20% to savings and debt repayment.'
+                    },
+                    {
+                        question: 'Which of these is considered a "need" in budgeting?',
+                        options: [
+                            'Netflix subscription',
+                            'Restaurant dining',
+                            'Housing/rent',
+                            'Gym membership'
+                        ],
+                        correct: 2,
+                        explanation: 'Needs are essential expenses like housing, utilities, food, and transportation required for survival.'
+                    },
+                    {
+                        question: 'How much of your income should you ideally save monthly?',
+                        options: [
+                            'Whatever is left over',
+                            'At least 10-20%',
+                            'Only when you get bonuses',
+                            'Save after all spending'
+                        ],
+                        correct: 1,
+                        explanation: 'Financial experts recommend saving at least 10-20% of your monthly income before spending on wants.'
+                    },
+                    {
+                        question: 'What is an emergency fund?',
+                        options: [
+                            'Money for vacation',
+                            '3-6 months of living expenses',
+                            'Investment money',
+                            'Shopping fund'
+                        ],
+                        correct: 1,
+                        explanation: 'An emergency fund should cover 3-6 months of essential living expenses for unexpected situations.'
+                    },
+                    {
+                        question: 'What is discretionary spending?',
+                        options: [
+                            'Rent and utilities',
+                            'Groceries and transportation',
+                            'Entertainment and hobbies',
+                            'Insurance payments'
+                        ],
+                        correct: 2,
+                        explanation: 'Discretionary spending is non-essential spending on entertainment, hobbies, dining out, and other wants.'
+                    }
+                ]
+            },
+            credit: {
+                title: 'Credit Score Mastery',
+                subtitle: 'Build and maintain excellent credit',
+                questions: [
+                    {
+                        question: 'What is considered a good credit score range?',
+                        options: [
+                            '300-579',
+                            '580-669',
+                            '670-739',
+                            '740+'
+                        ],
+                        correct: 2,
+                        explanation: 'A credit score of 670-739 is considered good, while 740+ is excellent.'
+                    },
+                    {
+                        question: 'What factor most affects your credit score?',
+                        options: [
+                            'Payment history',
+                            'Income level',
+                            'Age',
+                            'Education'
+                        ],
+                        correct: 0,
+                        explanation: 'Payment history (35%) is the biggest factor affecting your credit score.'
+                    },
+                    {
+                        question: 'How often should you check your credit report?',
+                        options: [
+                            'Never',
+                            'Once a year',
+                            'Monthly',
+                            'Weekly'
+                        ],
+                        correct: 1,
+                        explanation: 'You should check your credit report at least once a year for errors and fraud.'
+                    },
+                    {
+                        question: 'What is a credit utilization ratio?',
+                        options: [
+                            'Total credit available',
+                            'Credit used vs credit available',
+                            'Number of credit cards',
+                            'Credit age'
+                        ],
+                        correct: 1,
+                        explanation: 'Credit utilization is the percentage of available credit you\'re using. Keep it below 30%.'
+                    },
+                    {
+                        question: 'How long do negative items stay on your credit report?',
+                        options: [
+                            '2 years',
+                            '7 years',
+                            '10 years',
+                            'Forever'
+                        ],
+                        correct: 1,
+                        explanation: 'Most negative items like late payments stay on your credit report for 7 years.'
+                    }
+                ]
+            },
+            investment: {
+                title: 'Investment Fundamentals',
+                subtitle: 'Grow your wealth with smart investing',
+                questions: [
+                    {
+                        question: 'What is compound interest?',
+                        options: [
+                            'Interest on principal only',
+                            'Interest on principal + accumulated interest',
+                            'Fixed interest rate',
+                            'Bank fee'
+                        ],
+                        correct: 1,
+                        explanation: 'Compound interest is interest calculated on both the principal and accumulated interest from previous periods.'
+                    },
+                    {
+                        question: 'What is diversification?',
+                        options: [
+                            'Putting all money in one stock',
+                            'Spreading investments across different assets',
+                            'Only investing in bonds',
+                            'Timing the market'
+                        ],
+                        correct: 1,
+                        explanation: 'Diversification means spreading investments across different assets to reduce risk.'
+                    },
+                    {
+                        question: 'What is a mutual fund?',
+                        options: [
+                            'Single company stock',
+                            'Pool of money from many investors',
+                            'Government bond',
+                            'Bank account'
+                        ],
+                        correct: 1,
+                        explanation: 'A mutual fund pools money from many investors to buy a diversified portfolio of stocks, bonds, or other securities.'
+                    },
+                    {
+                        question: 'What is risk tolerance?',
+                        options: [
+                            'How much money you have',
+                            'Your ability to handle investment losses',
+                            'Your age',
+                            'Your income'
+                        ],
+                        correct: 1,
+                        explanation: 'Risk tolerance is your ability and willingness to handle investment losses and market fluctuations.'
+                    },
+                    {
+                        question: 'When should you start investing?',
+                        options: [
+                            'When you\'re rich',
+                            'After 40 years old',
+                            'As soon as possible',
+                            'Only when market is good'
+                        ],
+                        correct: 2,
+                        explanation: 'Start investing as early as possible to benefit from compound interest and long-term growth.'
+                    }
+                ]
+            },
+            tax: {
+                title: 'Tax Essentials',
+                subtitle: 'Navigate taxes with confidence',
+                questions: [
+                    {
+                        question: 'What is a tax deduction?',
+                        options: [
+                            'Money you get back',
+                            'Expense that reduces taxable income',
+                            'Free money from government',
+                            'Tax penalty'
+                        ],
+                        correct: 1,
+                        explanation: 'A tax deduction reduces your taxable income, potentially lowering your tax bill.'
+                    },
+                    {
+                        question: 'What is a tax credit?',
+                        options: [
+                            'Reduces tax bill directly',
+                            'Increases taxable income',
+                            'Tax penalty',
+                            'Bank fee'
+                        ],
+                        correct: 0,
+                        explanation: 'A tax credit directly reduces your tax bill dollar-for-dollar, making it more valuable than a deduction.'
+                    },
+                    {
+                        question: 'What is the standard deduction?',
+                        options: [
+                            'Fixed amount everyone can deduct',
+                            'Only for rich people',
+                            'Business expense',
+                            'State tax'
+                        ],
+                        correct: 0,
+                        explanation: 'The standard deduction is a fixed amount all taxpayers can deduct without itemizing expenses.'
+                    },
+                    {
+                        question: 'When are federal taxes typically due?',
+                        options: [
+                            'January 1st',
+                            'April 15th',
+                            'July 4th',
+                            'December 31st'
+                        ],
+                        correct: 1,
+                        explanation: 'Federal income taxes are typically due on April 15th each year.'
+                    },
+                    {
+                        question: 'What is taxable income?',
+                        options: [
+                            'All money you earn',
+                            'Income after deductions and exemptions',
+                            'Only salary',
+                            'Only investment income'
+                        ],
+                        correct: 1,
+                        explanation: 'Taxable income is your total income minus deductions and exemptions.'
+                    }
+                ]
+            }
+        };
+
+        // Quiz State
+        let currentQuiz = null;
+        let currentQuestion = 0;
+        let userAnswers = [];
+
+        // Start Quiz
+        function startQuiz(quizType) {
+            currentQuiz = quizData[quizType];
+            currentQuestion = 0;
+            userAnswers = [];
+            
+            // Update modal header
+            document.getElementById('modalTitle').textContent = currentQuiz.title;
+            document.getElementById('modalSubtitle').textContent = currentQuiz.subtitle;
+            
+            // Show modal
+            document.getElementById('quizModal').classList.add('active');
+            
+            // Load first question
+            loadQuestion();
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Load Question
+        function loadQuestion() {
+            const question = currentQuiz.questions[currentQuestion];
+            const container = document.getElementById('quizContainer');
+            
+            let html = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1} of ${currentQuiz.questions.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">
+            `;
+            
+            question.options.forEach((option, index) => {
+                const isSelected = userAnswers[currentQuestion] === index;
+                html += `
+                    <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(${index})">
+                        <div class="option-radio"></div>
+                        <div class="option-text">${option}</div>
+                    </div>
+                `;
+            });
+            
+            html += `
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+            
+            // Hide results, show quiz
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('resultsContainer').classList.remove('active');
+            
+            // Update buttons
+            updateButtons();
+        }
+
+        // Select Option
+        function selectOption(index) {
+            userAnswers[currentQuestion] = index;
+            loadQuestion(); // Reload to update selection
+        }
+
+        // Next Question
+        function nextQuestion() {
+            if (currentQuestion < currentQuiz.questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+                updateProgress();
+            } else {
+                showResults();
+            }
+        }
+
+        // Previous Question
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+                updateProgress();
+            }
+        }
+
+        // Update Progress
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / currentQuiz.questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Update Buttons
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentQuestion === 0;
+            
+            if (currentQuestion === currentQuiz.questions.length - 1) {
+                nextBtn.textContent = 'Submit';
+                nextBtn.onclick = showResults;
+            } else {
+                nextBtn.textContent = 'Next';
+                nextBtn.onclick = nextQuestion;
+            }
+        }
+
+        // Show Results
+        function showResults() {
+            let score = 0;
+            const results = [];
+            
+            currentQuiz.questions.forEach((question, index) => {
+                const isCorrect = userAnswers[index] === question.correct;
+                if (isCorrect) score++;
+                
+                results.push({
+                    question: question.question,
+                    yourAnswer: question.options[userAnswers[index]],
+                    correctAnswer: question.options[question.correct],
+                    isCorrect: isCorrect,
+                    explanation: question.explanation
+                });
+            });
+            
+            const percentage = (score / currentQuiz.questions.length) * 100;
+            
+            // Generate results HTML
+            let html = `
+                <div class="score-display">
+                    <div class="score-circle">
+                        <div class="score-value">${score}/${currentQuiz.questions.length}</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <div class="performance-level">${getPerformanceLevel(percentage)}</div>
+                    <div class="performance-message">${getPerformanceMessage(percentage)}</div>
+                </div>
+                
+                <div class="answers-review">
+                    <h3 style="margin-bottom: 20px; color: var(--dark);">Answer Review</h3>
+            `;
+            
+            results.forEach((result, index) => {
+                html += `
+                    <div class="answer-item ${result.isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="answer-question">Q${index + 1}: ${result.question}</div>
+                        <div class="answer-result">
+                            <span class="your-answer">Your answer: ${result.yourAnswer}</span>
+                            <span class="${result.isCorrect ? 'correct-answer' : 'wrong-answer'}">
+                                ${result.isCorrect ? '✓ Correct' : '✗ Incorrect'}
+                            </span>
+                        </div>
+                        ${!result.isCorrect ? `<div class="answer-result"><span class="correct-answer">Correct answer: ${result.correctAnswer}</span></div>` : ''}
+                        <div class="answer-explanation">💡 ${result.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            html += `</div>`;
+            
+            // Hide quiz, show results
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('resultsContainer').innerHTML = html;
+            document.getElementById('resultsContainer').classList.add('active');
+            
+            // Update controls
+            document.getElementById('quizControls').innerHTML = `
+                <button class="btn btn-secondary" onclick="retakeQuiz()">Retake Quiz</button>
+                <button class="btn btn-success" onclick="closeQuiz()">Finish</button>
+            `;
+        }
+
+        // Get Performance Level
+        function getPerformanceLevel(percentage) {
+            if (percentage >= 80) return '🌟 Excellent!';
+            if (percentage >= 60) return '📈 Good Job!';
+            if (percentage >= 40) return '📚 Getting There';
+            return '💪 Keep Learning!';
+        }
+
+        // Get Performance Message
+        function getPerformanceMessage(percentage) {
+            if (percentage >= 80) {
+                return 'Outstanding! You have mastered this topic. Keep up the excellent work!';
+            } else if (percentage >= 60) {
+                return 'Great job! You have a solid understanding. With a bit more practice, you\'ll be an expert!';
+            } else if (percentage >= 40) {
+                return 'Good effort! You\'re on the right track. Keep learning and practicing to improve your knowledge.';
+            } else {
+                return 'Keep learning! Everyone starts somewhere. Continue studying and you\'ll see improvement.';
+            }
+        }
+
+        // Retake Quiz
+        function retakeQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            loadQuestion();
+            updateProgress();
+        }
+
+        // Close Quiz
+        function closeQuiz() {
+            document.getElementById('quizModal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

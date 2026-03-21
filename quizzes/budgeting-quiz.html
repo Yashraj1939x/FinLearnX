@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgeting Basics Quiz - FinLearnX</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .quiz-header h1 {
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        
+        .quiz-header p {
+            color: #6b7280;
+            font-size: 18px;
+        }
+        
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .question-number {
+            color: #3b82f6;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .question-text {
+            font-size: 18px;
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .option {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+        
+        .option.selected {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        
+        .quiz-controls {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .results-container {
+            display: none;
+            text-align: center;
+        }
+        
+        .score-display {
+            font-size: 48px;
+            font-weight: bold;
+            color: #10b981;
+            margin: 20px 0;
+        }
+        
+        .performance-level {
+            font-size: 24px;
+            color: #1f2937;
+            margin-bottom: 30px;
+        }
+        
+        .answer-review {
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .answer-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ddd;
+        }
+        
+        .answer-item.correct {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+        
+        .answer-item.incorrect {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+        
+        .back-btn {
+            background: #6b7280;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+        
+        .explanation {
+            color: #6b7280;
+            font-style: italic;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <a href="../index.html" class="back-btn">← Back to Home</a>
+        
+        <div class="quiz-header">
+            <h1>💰 Budgeting Basics Quiz</h1>
+            <p>Test your knowledge of budgeting fundamentals and smart money management</p>
+        </div>
+        
+        <div id="quiz-form">
+            <div class="question-card">
+                <div class="question-number">Question 1 of 5</div>
+                <div class="question-text">What's the 50/30/20 rule in budgeting?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="0">
+                        <span>50% needs, 30% wants, 20% savings</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="1">
+                        <span>50% savings, 30% needs, 20% wants</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="2">
+                        <span>50% wants, 30% savings, 20% needs</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="3">
+                        <span>50% bills, 30% food, 20% entertainment</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-number">Question 2 of 5</div>
+                <div class="question-text">What's considered a 'need' in budgeting?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="0">
+                        <span>Netflix subscription</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="1">
+                        <span>Restaurant dining</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="2">
+                        <span>Housing/rent</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="3">
+                        <span>Gym membership</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-number">Question 3 of 5</div>
+                <div class="question-text">How much should you save monthly?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="0">
+                        <span>Whatever is left over</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="1">
+                        <span>At least 10-20% of income</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="2">
+                        <span>Only when you get bonuses</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="3">
+                        <span>Save after all spending</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-number">Question 4 of 5</div>
+                <div class="question-text">What's an emergency fund?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="0">
+                        <span>Money for vacation</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="1">
+                        <span>3-6 months of living expenses</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="2">
+                        <span>Investment money</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="3">
+                        <span>Shopping fund</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-number">Question 5 of 5</div>
+                <div class="question-text">What's discretionary spending?</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="0">
+                        <span>Rent and utilities</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="1">
+                        <span>Groceries and transportation</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="2">
+                        <span>Entertainment and hobbies</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="3">
+                        <span>Insurance payments</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="quiz-controls">
+                <button class="submit-btn" onclick="testSubmit()">Submit Quiz</button>
+            </div>
+        </div>
+        
+        <div id="results" class="results-container">
+            <div class="score-display" id="score">0/5</div>
+            <div class="performance-level" id="level">Keep Learning!</div>
+            
+            <div class="answer-review" id="review"></div>
+            
+            <div class="quiz-controls">
+                <button class="submit-btn" onclick="retakeQuiz()">Retake Quiz</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const correctAnswers = [0, 2, 1, 1, 2];
+        const explanations = [
+            "The 50/30/20 rule allocates 50% to needs, 30% to wants, and 20% to savings and debt repayment.",
+            "Needs are essential expenses like housing, utilities, food, and transportation required for survival.",
+            "Financial experts recommend saving at least 10-20% of your monthly income before spending on wants.",
+            "An emergency fund should cover 3-6 months of essential living expenses for unexpected situations.",
+            "Discretionary spending is non-essential spending on entertainment, hobbies, dining out, and other wants."
+        ];
+        
+        // Add click handlers for options
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Budgeting Quiz loaded successfully');
+            
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const radio = this.querySelector('input[type="radio"]');
+                    const name = radio.name;
+                    
+                    // Remove selected class from all options in this group
+                    document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                        r.closest('.option').classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    radio.checked = true;
+                    console.log('Option selected:', name, radio.value);
+                });
+            });
+        });
+        
+        function testSubmit() {
+            console.log('Submit button clicked!');
+            alert('Submit button is working! Now calculating results...');
+            calculateResults();
+        }
+        
+        function calculateResults() {
+            console.log('calculateResults called');
+            let score = 0;
+            const answers = [];
+            
+            for (let i = 1; i <= 5; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    const answer = parseInt(selected.value);
+                    answers.push(answer);
+                    if (answer === correctAnswers[i-1]) {
+                        score++;
+                    }
+                } else {
+                    alert('Please answer all questions before submitting!');
+                    return;
+                }
+            }
+            
+            console.log('Score calculated:', score, 'Answers:', answers);
+            displayResults(score, answers);
+        }
+        
+        function displayResults(score, answers) {
+            const percentage = (score / 5) * 100;
+            let level = 'Keep Learning!';
+            let color = '#ef4444';
+            let thought = '';
+            let recommendation = '';
+            
+            if (percentage >= 80) {
+                level = 'Excellent! 🌟';
+                color = '#10b981';
+                thought = 'You have a strong understanding of budgeting fundamentals! Your knowledge shows you\'re ready to take control of your finances with confidence.';
+                recommendation = 'Consider creating a detailed monthly budget and automating your savings to maintain this financial discipline.';
+            } else if (percentage >= 60) {
+                level = 'Good Job! 📈';
+                color = '#3b82f6';
+                thought = 'You have a solid foundation in budgeting concepts. With a bit more refinement, you\'ll be managing your finances like a pro!';
+                recommendation = 'Focus on building your emergency fund and tracking your expenses more closely to identify areas for improvement.';
+            } else if (percentage >= 40) {
+                level = 'Getting There 📚';
+                color = '#f59e0b';
+                thought = 'You\'re on the right path! Budgeting can seem complex at first, but you\'re building the knowledge needed for financial success.';
+                recommendation = 'Start with the basics: track your spending for one month, then create a simple budget using the 50/30/20 rule.';
+            } else {
+                level = 'Keep Learning! 💪';
+                color = '#ef4444';
+                thought = 'Everyone starts somewhere! Budgeting is a skill that develops with practice. Your willingness to learn is the first step to financial wellness.';
+                recommendation = 'Begin by understanding your income vs expenses, then gradually work on building savings habits and distinguishing needs from wants.';
+            }
+            
+            document.getElementById('score').textContent = `${score}/5`;
+            document.getElementById('score').style.color = color;
+            document.getElementById('level').textContent = level;
+            
+            // Generate review with enhanced feedback
+            let reviewHTML = '<h3>Answer Review:</h3>';
+            const questions = [
+                "What's the 50/30/20 rule in budgeting?",
+                "What's considered a 'need' in budgeting?",
+                "How much should you save monthly?",
+                "What's an emergency fund?",
+                "What's discretionary spending?"
+            ];
+            
+            for (let i = 0; i < 5; i++) {
+                const isCorrect = answers[i] === correctAnswers[i];
+                const userAnswer = document.querySelector(`input[name="q${i+1}"]:checked`).parentElement.querySelector('span').textContent;
+                
+                reviewHTML += `
+                    <div class="answer-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div><strong>Q${i+1}:</strong> ${questions[i]}</div>
+                        <div>Your answer: ${userAnswer} ${isCorrect ? '✅' : '❌'}</div>
+                        ${!isCorrect ? `<div>Correct answer: ${document.querySelectorAll(`input[name="q${i+1}"]`)[correctAnswers[i]].parentElement.querySelector('span').textContent}</div>` : ''}
+                        <div class="explanation">💡 ${explanations[i]}</div>
+                    </div>
+                `;
+            }
+            
+            // Add personalized feedback section
+            reviewHTML += `
+                <div class="personalized-feedback" style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 25px; border-radius: 12px; margin-top: 30px; border-left: 4px solid ${color};">
+                    <h4 style="color: ${color}; margin-bottom: 15px;">🧠 Your Financial Thought</h4>
+                    <p style="font-size: 16px; line-height: 1.6; color: #374151; margin-bottom: 20px;">${thought}</p>
+                    
+                    <h4 style="color: ${color}; margin-bottom: 15px;">🎯 Personalized Recommendation</h4>
+                    <p style="font-size: 16px; line-height: 1.6; color: #374151; margin-bottom: 20px;">${recommendation}</p>
+                    
+                    <h4 style="color: ${color}; margin-bottom: 15px;">📊 Your Budgeting Strength</h4>
+                    <ul style="color: #374151; line-height: 1.6;">
+                        ${generateStrengths(answers, correctAnswers)}
+                    </ul>
+                    
+                    <h4 style="color: ${color}; margin-bottom: 15px;">🎯 Areas to Focus On</h4>
+                    <ul style="color: #374151; line-height: 1.6;">
+                        ${generateWeaknesses(answers, correctAnswers)}
+                    </ul>
+                </div>
+            `;
+            
+            document.getElementById('review').innerHTML = reviewHTML;
+            
+            // Show results, hide quiz
+            document.getElementById('quiz-form').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+        }
+        
+        function generateStrengths(answers, correctAnswers) {
+            const strengths = [];
+            const topics = ['budgeting rules', 'needs vs wants', 'saving habits', 'emergency preparedness', 'spending awareness'];
+            
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i] === correctAnswers[i]) {
+                    strengths.push(`<li>Strong understanding of ${topics[i]}</li>`);
+                }
+            }
+            
+            return strengths.length > 0 ? strengths.join('') : '<li>Keep building your financial knowledge foundation</li>';
+        }
+        
+        function generateWeaknesses(answers, correctAnswers) {
+            const weaknesses = [];
+            const topics = ['budgeting rules', 'needs vs wants', 'saving habits', 'emergency preparedness', 'spending awareness'];
+            
+            for (let i = 0; i < answers.length; i++) {
+                if (answers[i] !== correctAnswers[i]) {
+                    weaknesses.push(`<li>Focus on understanding ${topics[i]} better</li>`);
+                }
+            }
+            
+            return weaknesses.length > 0 ? weaknesses.join('') : '<li>Continue practicing and applying your knowledge</li>';
+        }
+        
+        function retakeQuiz() {
+            // Reset all answers
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+                radio.closest('.option').classList.remove('selected');
+            });
+            
+            // Show quiz, hide results
+            document.getElementById('quiz-form').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
