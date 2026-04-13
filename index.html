@@ -433,6 +433,76 @@
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
+        /* Hero Taskbar Styling */
+        .hero-taskbar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+        }
+
+        .taskbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .taskbar-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .taskbar-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .taskbar-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .taskbar-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .taskbar-link:hover::before {
+            width: 100px;
+            height: 100px;
+        }
+
+        .taskbar-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -456,6 +526,26 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .hero-taskbar {
+                padding: 15px 20px;
+            }
+            
+            .taskbar-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .taskbar-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .taskbar-link {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
@@ -474,16 +564,28 @@
 
 <!-- Enhanced Hero Section -->
 <section class="hero">
+    <!-- Navigation Taskbar -->
+    <nav class="hero-taskbar">
+        <div class="taskbar-content">
+            <div class="taskbar-logo">FinLearnX</div>
+            <div class="taskbar-links">
+                <a href="#tools" class="taskbar-link">Tools</a>
+                <a href="#topics" class="taskbar-link">Topics</a>
+                <a href="#quizzes" class="taskbar-link">Quizzes</a>
+                <a href="#simulations" class="taskbar-link">Simulations</a>
+            </div>
+        </div>
+    </nav>
+    
     <div class="hero-content">
-        <h1> FinLearnX</h1>
+        <h1>FinLearnX</h1>
         <p>Master Your Finances with Interactive Learning Tools</p>
         <div class="hero-buttons">
-            <a href="#expense-tracker" class="btn-hero btn-primary-hero">
-                <span></span>
-                Track Expenses
+            <a href="#tools" class="btn-hero btn-primary-hero">
+                <span>Track Expenses</span>
             </a>
             <a href="#quizzes" class="btn-hero btn-secondary-hero">
-                <span> Take Quizzes
+                <span>Take Quizzes</span>
             </a>
         </div>
     </div>
@@ -493,7 +595,7 @@
 <!-- =====================
      TOPICS SECTION
 ====================== -->
-<section class="topics-section">
+<section id="topics" class="topics-section">
   <h2 class="section-title">📚 Financial Literacy Topics</h2>
 
   <div class="card-container">
@@ -667,7 +769,7 @@
 <!-- =====================
      SIMULATIONS SECTION
 ====================== -->
-<div class="simulation-list">
+<section id="simulations" class="simulation-list">
 
   <div class="simulation-row blue">
     <div class="simulation-info">
@@ -693,10 +795,13 @@
     <button onclick="goTo('simulations/sipSimulation.html')">Open →</button>
   </div>
 
-</div>
+</section>
 
-<section class="platform-section">
-  <h2 class="platform-title">🏦 Banking Awareness</h2>
+<!-- =====================
+     FINANCIAL QUIZZES
+====================== -->
+<section id="quizzes" class="quiz-section">
+  <h2 class="platform-title">Banking Awareness</h2>
   <p class="platform-subtitle">
     Understand how the banking system works in real life —
     from accounts and deposits to digital payments and security.
@@ -708,9 +813,9 @@
       Learn core banking concepts, types of banks,
       digital banking, loans, interest, RBI, and safe banking practices.
     </p>
-    <span class="cta">Start Learning →</span>
+    <span class="cta">Start Learning</span>
     <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
-      <a href="https://youtu.be/MR-e3e50-j8?si=3a21jj3gzHZNxuWO" target="_blank" class="video-link" onclick="event.stopPropagation()">🏦 Banking Awareness</a>
+      <a href="https://youtu.be/MR-e3e50-j8?si=3a21jj3gzHZNxuWO" target="_blank" class="video-link" onclick="event.stopPropagation()">Banking Awareness</a>
     </div>
   </div>
 </section>
@@ -1178,27 +1283,42 @@
             }
         }
 
-        // Initialize enhanced UI
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create floating particles
-            createFloatingParticles();
-            
-            // Add smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(anchor.getAttribute('href').substring(1));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-        });
-
         // Enhanced goTo function
         function goTo(page) {
             window.location.href = page;
         }
+
+        // Smooth scrolling for anchor links
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80; // Account for fixed header
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create floating particles
+            createFloatingParticles();
+            
+            // Initialize smooth scrolling
+            initSmoothScrolling();
+        });
     </script>
 
     <script src="./js/main.js"></script>
