@@ -13,7 +13,6 @@ function calculateRetirement() {
         showMessage('Retirement age must be greater than current age', 'error');
         return;
     }
-    
     // Calculate years until retirement
     const yearsUntilRetirement = retirementAge - currentAge;
     
@@ -95,7 +94,6 @@ function formatCurrency(amount) {
         return '₹' + amount.toLocaleString('en-IN');
     }
 }
-
 function animateResults() {
     const resultsCard = document.querySelector('.results-card');
     resultsCard.style.transform = 'scale(0.95)';
@@ -134,7 +132,6 @@ function showMessage(message, type) {
         }, 300);
     }, 3000);
 }
-
 // Auto-calculate on input change
 document.addEventListener('DOMContentLoaded', function() {
     // Add event listeners to all inputs
