@@ -196,7 +196,7 @@
         }
 
         .btn-secondary-hero:hover {
-            background: rgba(99, 102, 241, 0.3);
+            background-color: #667eea;
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
         }
@@ -206,7 +206,6 @@
             padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            position: relative;
         }
 
         .section-title {
@@ -214,11 +213,28 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #667eea;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        #topics .section-title {
+            color: #2c3e50 !important;
+            text-shadow: none !important;
+            font-weight: 900;
+            animation: none !important;
+        }
+
+        .stock-simulator-section .platform-title {
+            color: #ffffff !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 900;
+        }
+
+        .section-title.stock-title {
+            color: #ffffff !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 900;
         }
 
         .section-subtitle {
@@ -571,7 +587,7 @@
             <div class="taskbar-links">
                 <a href="#tools" class="taskbar-link">Tools</a>
                 <a href="#topics" class="taskbar-link">Topics</a>
-                <a href="#quizzes" class="taskbar-link">Quizzes</a>
+                <a href="#financial-quizzes" class="taskbar-link">Quizzes</a>
                 <a href="#simulations" class="taskbar-link">Simulations</a>
             </div>
         </div>
@@ -581,10 +597,10 @@
         <h1>FinLearnX</h1>
         <p>Master Your Finances with Interactive Learning Tools</p>
         <div class="hero-buttons">
-            <a href="#tools" class="btn-hero btn-primary-hero">
+            <a href="#expense-tracker" class="btn-hero btn-primary-hero">
                 <span>Track Expenses</span>
             </a>
-            <a href="#quizzes" class="btn-hero btn-secondary-hero">
+            <a href="#tools" class="btn-hero btn-secondary-hero">
                 <span>Take Quizzes</span>
             </a>
         </div>
@@ -800,7 +816,7 @@
 <!-- =====================
      FINANCIAL QUIZZES
 ====================== -->
-<section id="quizzes" class="quiz-section">
+<section class="quiz-section">
   <h2 class="platform-title">Banking Awareness</h2>
   <p class="platform-subtitle">
     Understand how the banking system works in real life —
@@ -1013,18 +1029,18 @@
         </div>
         
         <div class="input-group">
-          <label for="monthly-income">Current Monthly Income ($)</label>
-          <input type="number" id="monthly-income" value="5000" min="500" max="100000">
+          <label for="monthly-income">Current Monthly Income (₹)</label>
+          <input type="number" id="monthly-income" value="50000" min="5000" max="1000000">
         </div>
         
         <div class="input-group">
-          <label for="desired-monthly">Desired Monthly Retirement Income ($)</label>
-          <input type="number" id="desired-monthly" value="4000" min="1000" max="50000">
+          <label for="desired-monthly">Desired Monthly Retirement Income (₹)</label>
+          <input type="number" id="desired-monthly" value="40000" min="10000" max="500000">
         </div>
         
         <div class="input-group">
-          <label for="current-savings">Current Savings ($)</label>
-          <input type="number" id="current-savings" value="10000" min="0" max="10000000">
+          <label for="current-savings">Current Savings (₹)</label>
+          <input type="number" id="current-savings" value="500000" min="0" max="100000000">
         </div>
         
         <div class="input-group">
@@ -1046,22 +1062,22 @@
         
         <div class="result-item">
           <span class="result-label">Total Retirement Fund Needed</span>
-          <span class="result-value highlight" id="total-needed">$1,200,000</span>
+          <span class="result-value highlight" id="total-needed">₹1.20 Cr</span>
         </div>
         
         <div class="result-item">
           <span class="result-label">Monthly Savings Required</span>
-          <span class="result-value important" id="monthly-savings">$1,250</span>
+          <span class="result-value important" id="monthly-savings">₹1,25,000</span>
         </div>
         
         <div class="result-item">
           <span class="result-label">Projected Fund at Retirement</span>
-          <span class="result-value" id="projected-fund">$1,525,000</span>
+          <span class="result-value" id="projected-fund">₹1.53 Cr</span>
         </div>
         
         <div class="result-item">
           <span class="result-label">Annual Retirement Income</span>
-          <span class="result-value" id="annual-income">$48,000</span>
+          <span class="result-value" id="annual-income">₹48.00 L</span>
         </div>
       </div>
       
@@ -1069,10 +1085,11 @@
         <h4>💡 Retirement Planning Tips</h4>
         <ul>
           <li>Start saving early - compound interest is your best friend</li>
-          <li>Take advantage of employer 401(k) matching programs</li>
+          <li>Take advantage of employer PF (Provident Fund) matching programs</li>
           <li>Consider increasing savings rate with income increases</li>
           <li>Diversify investments to manage risk</li>
           <li>Review and adjust your plan annually</li>
+          <li>Consider inflation-adjusted returns for long-term planning</li>
         </ul>
       </div>
     </div>
@@ -1082,7 +1099,7 @@
 <!-- =====================
      EXPENSE TRACKER
 ====================== -->
-<section class="expense-tracker-section">
+<section id="expense-tracker" class="expense-tracker-section">
   <h2 class="platform-title">📊 Expense Tracker</h2>
   <p class="platform-subtitle">
     Track your daily expenses, categorize spending, and visualize where your money goes.
@@ -1110,7 +1127,7 @@
 <!-- =====================
      FINANCIAL QUIZZES
 ====================== -->
-<section class="quiz-section">
+<section id="financial-quizzes" class="quiz-section">
   <h2 class="section-title">🧠 Financial Quizzes</h2>
   <p class="section-subtitle">
     Test your knowledge with our beautiful, interactive quizzes.

@@ -70,25 +70,30 @@ function updateRetirementResults(years, totalNeeded, monthlySavings, projectedFu
     projectedElement.className = 'result-value';
     
     // Color code monthly savings
-    if (monthlySavings > 1000) {
+    if (monthlySavings > 50000) {
         monthlySavingsElement.className = 'result-value highlight';
     } else if (monthlySavings > 0) {
         monthlySavingsElement.className = 'result-value important';
     }
     
     // Color code projected fund
-    if (projectedFund > 1000000) {
+    if (projectedFund > 10000000) {
         projectedElement.className = 'result-value highlight';
     }
 }
 
 function formatCurrency(amount) {
-    return new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-    }).format(amount);
+    // Format for Indian currency with proper numbering system
+    if (amount >= 10000000) {
+        // Crores (1 crore = 1,00,00,000)
+        return '₹' + (amount / 10000000).toFixed(2) + ' Cr';
+    } else if (amount >= 100000) {
+        // Lakhs (1 lakh = 1,00,000)
+        return '₹' + (amount / 100000).toFixed(2) + ' L';
+    } else {
+        // Use Indian numbering format for amounts below 1 lakh
+        return '₹' + amount.toLocaleString('en-IN');
+    }
 }
 
 function animateResults() {
